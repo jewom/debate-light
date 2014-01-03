@@ -1,4 +1,4 @@
-package com.teamgeany.debate.fragments;
+package com.teamgeny.debate.fragments;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.R;
 
-public class FragmentIntervenants extends Fragment {
+public class FragmentIntervenants extends FragmentParent {
 	View me;
 	int numIntervenant;
 	String dureeDebat;

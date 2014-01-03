@@ -1,10 +1,19 @@
-package com.teamgeany.debate.fragments;
+package com.teamgeny.debate.fragments;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +27,7 @@ import android.widget.Toast;
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.R;
 
-public class FragmentDebat extends Fragment {
+public class FragmentDebat extends FragmentParent {
 	View me;
 	int numIntervenant;
 	String dureeDebat;
@@ -27,6 +36,7 @@ public class FragmentDebat extends Fragment {
 	ArrayList<Long> timePassed = new ArrayList<Long>();
 	ArrayList<Boolean> activated = new ArrayList<Boolean>();
 	ArrayList<Long> realTimeLeft = new ArrayList<Long>();
+
 	long dureeTotaleNB = 0;
 	long movableTotal = 0;
 	int current = -1;
@@ -77,6 +87,72 @@ public class FragmentDebat extends Fragment {
 		}
 	};
 
+	public void stopAndSave() throws IOException, JSONException {
+		if (current >= 0) {
+			Chronometer c = (Chronometer) me
+					.findViewById(listPush.get(current)).findViewById(
+							R.id.textView2);
+			c.stop();
+		}
+		long sum = 0;
+		for (int k = 0; k < realTimeLeft.size(); k++) {
+			sum += realTimeLeft.get(k);
+		}
+		sum = dureeTotaleNB - sum;
+		JSONObject obj = new JSONObject();
+		try {
+			obj.put("name", getArguments().getString("name", "noname"));
+			obj.put("duree_totale", formatHours(dureeTotaleNB));
+			obj.put("duree_restante", formatHours(sum));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		JSONArray intervenants = new JSONArray();
+		for (int i = 0; i < realTimeLeft.size(); i++) {
+			JSONObject in = new JSONObject();
+			in.put("nom", listInterv.get(i));
+			in.put("temps_parle", formatHours(realTimeLeft.get(i)));
+			long secRemain = ((dureeTotaleNB / numIntervenant) - realTimeLeft.get(i));
+			in.put("temps_restant", formatHours(secRemain));
+			intervenants.put(i, in);
+		}
+		obj.put("intervenants", intervenants);
+		//Toast.makeText(getActivity(), obj.toString(), Toast.LENGTH_LONG).show();
+		Log.d("JSON", obj.toString(1));
+		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss",
+		 Locale.US);
+		
+		 String FILENAME =
+		 "debat_"+sdf.format(Calendar.getInstance().getTime())+".json";
+		 String string = "hello world!";
+		
+		 String pathdebate = FILENAME;
+		// Toast.makeText(getActivity(), pathdebate, Toast.LENGTH_SHORT).show();
+		 FileOutputStream fos = getActivity().openFileOutput(pathdebate,
+		 Context.MODE_PRIVATE);
+		 fos.write(obj.toString().getBytes());
+		 fos.close();
+	}
+
+	public String formatHours(long secRemain) {
+		String sign = "";
+		if (secRemain < 0)
+			sign = "-";
+		secRemain = Math.abs(secRemain);
+		long hours = secRemain / 3600;
+		String textHours = "";
+
+		textHours = (hours > 10 ? hours : "0" + hours) + ":";
+		secRemain -= (hours * 3600);
+
+		return sign + textHours
+				+ (secRemain / 60 > 9 ? secRemain / 60 : "0" + secRemain / 60)
+				+ ":"
+				+ (secRemain % 60 > 9 ? secRemain % 60 : "0" + secRemain % 60);
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -88,13 +164,31 @@ public class FragmentDebat extends Fragment {
 		listPush.add(R.id.speaker6);
 		listPush.add(R.id.speaker7);
 		listPush.add(R.id.speaker8);
+
 		numIntervenant = getArguments().getInt("numInterv", 2);
 		dureeDebat = getArguments().getString("dureeDebat", "00:01");
 		String[] t = dureeDebat.split(":");
-		dureeTotaleNB = Long.parseLong(t[0]) * 60 + Long.parseLong(t[1]) * 60;
+		dureeTotaleNB = Long.parseLong(t[0]) * 3600 + Long.parseLong(t[1]) * 60;
 		movableTotal = dureeTotaleNB;
 		listInterv = getArguments().getStringArrayList("listInterv");
 		me = inflater.inflate(R.layout.fragment_debat, null);
+		PushScale stop = (PushScale) me.findViewById(R.id.pushScaleTerminer);
+		stop.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				try {
+					stopAndSave();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		for (int i = 1; i < 9; i++) {
 			if (i <= listInterv.size()) {
 				me.findViewById(listPush.get(i - 1))
@@ -112,53 +206,32 @@ public class FragmentDebat extends Fragment {
 							public void onChronometerTick(
 									Chronometer chronometer) {
 								movableTotal -= 1;
-								long movableClean = Math.abs(movableTotal) + 2;
-								
+								long movableClean = Math.abs(movableTotal);
+
 								long l = (SystemClock.elapsedRealtime() - chronometer
 										.getBase()) / 1000;
 								realTimeLeft.set(j, l);
 								long secRemain = ((dureeTotaleNB / numIntervenant) - l);
-								String sign = "";
-								if (secRemain < 0)
-									sign = "-";
+								((TextView) p.findViewById(R.id.textView5))
+										.setText(formatHours(l));
 								secRemain = Math.abs(secRemain);
 								((TextView) p.findViewById(R.id.textView3))
-										.setText(sign
-												+ (secRemain / 60 > 9 ? secRemain / 60
-														: "0" + secRemain / 60)
-												+ ":"
-												+ (secRemain % 60 > 9 ? secRemain % 60
-														: "0" + secRemain % 60));
+										.setText(formatHours(secRemain));
 								Log.d("Time left", "" + "((" + dureeTotaleNB
 										+ "/" + numIntervenant + ") -" + l);
 								long sum = 0;
-								for (int k = 0; k < realTimeLeft.size(); k++)
-								{
+								for (int k = 0; k < realTimeLeft.size(); k++) {
 									sum += realTimeLeft.get(k);
 								}
 								sum = dureeTotaleNB - sum;
-								String signMov = "";
-								if (sum < 0)
-									signMov = "-";
-								sum = Math.abs(sum);
+
 								((TextView) me.findViewById(R.id.RemainingAll))
-										.setText(signMov
-												+ (sum / 60 > 9 ? sum / 60
-														: "0" + sum
-																/ 60)
-												+ ":"
-												+ (sum % 60 > 9 ? sum % 60
-														: "0" + sum
-																% 60));
+										.setText(formatHours(sum));
 							}
 						});
 				long secRemain = ((dureeTotaleNB / numIntervenant));
 				((TextView) p.findViewById(R.id.textView3))
-						.setText((secRemain / 60 > 9 ? secRemain / 60 : "0"
-								+ secRemain / 60)
-								+ ":"
-								+ (secRemain % 60 > 9 ? secRemain % 60 : "0"
-										+ secRemain % 60));
+						.setText(formatHours(secRemain));
 
 				timePassed.add((long) 0);
 				realTimeLeft.add((long) 0);
@@ -169,11 +242,7 @@ public class FragmentDebat extends Fragment {
 			}
 
 			((TextView) me.findViewById(R.id.RemainingAll))
-					.setText((movableTotal / 60 > 9 ? movableTotal / 60 : "0"
-							+ movableTotal / 60)
-							+ ":"
-							+ (movableTotal % 60 > 9 ? movableTotal % 60 : "0"
-									+ movableTotal % 60));
+					.setText(formatHours(movableTotal));
 
 		}
 		// TODO Auto-generated method stub

@@ -1,16 +1,20 @@
 package com.teamgeny.debate;
 
-import com.teamgeany.debate.fragments.FragmentNouveauProjet;
-
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+
+import com.liltof.library.tools.PushScale;
+import com.teamgeny.debate.fragments.FragmentHistorique;
+import com.teamgeny.debate.fragments.FragmentNouveauProjet;
 
 public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
@@ -41,17 +45,39 @@ public class MainActivity extends FragmentActivity {
 		};
 		// Set the drawer toggle as the DrawerListener
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
-
+		PushScale prev = (PushScale) findViewById(R.id.buttonPastProjects);
+		prev.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mDrawerLayout.closeDrawers();
+				FragmentManager fragmentManager = getSupportFragmentManager();
+			    fragmentManager.beginTransaction()
+			                   .replace(R.id.content_frame, new FragmentHistorique())
+			                   .addToBackStack(null)
+			                   .commit();
+			}
+		});
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
 		FragmentManager fragmentManager = getSupportFragmentManager();
 	    fragmentManager.beginTransaction()
 	                   .replace(R.id.content_frame, new FragmentNouveauProjet())
+	                   .addToBackStack(null)
 	                   .commit();
 	    
 		
 	}
 
+	public void showFragmentHistoryDetails()
+	{
+		FragmentManager fragmentManager = getSupportFragmentManager();
+	    fragmentManager.beginTransaction()
+	                   .replace(R.id.content_frame, new FragmentNouveauProjet())
+	                   .addToBackStack(null)
+	                   .commit();
+	}
+	
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);

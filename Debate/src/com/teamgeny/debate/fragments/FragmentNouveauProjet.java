@@ -1,4 +1,4 @@
-package com.teamgeany.debate.fragments;
+package com.teamgeny.debate.fragments;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.NumberPicker.OnValueChangeListener;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ import android.widget.TimePicker;
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.R;
 
-public class FragmentNouveauProjet extends Fragment {
+public class FragmentNouveauProjet extends FragmentParent {
 	View me;
 	Calendar myCalendar = Calendar.getInstance();
 	TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener() {
@@ -71,6 +72,7 @@ public class FragmentNouveauProjet extends Fragment {
 				FragmentManager fragmentManager = getActivity()
 						.getSupportFragmentManager();
 				Bundle b = new Bundle();
+				b.putString("name", ((EditText) me.findViewById(R.id.editProjectName)).getText().toString());
 				b.putInt("numInterv", Integer.parseInt((String) ((TextView) me
 						.findViewById(R.id.textNumberOfSpeakers)).getText()));
 				b.putString("dureeDebat", (String) ((TextView) me.findViewById(R.id.textDuree)).getText());
