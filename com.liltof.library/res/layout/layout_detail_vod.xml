@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fullscreen_content_controls"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true" >
+
+    <RelativeLayout
+        android:id="@+id/limg"
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        android:layout_alignBottom="@+id/layoutDescriptionVod"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/layoutDescriptionVod"
+        android:background="#44000000" >
+
+        <WebView
+            android:id="@+id/webView1"
+            android:layout_width="300dp"
+            android:layout_height="500dp"
+            android:layout_marginLeft="30dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutDescriptionVod"
+        android:layout_width="500dp"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="100dp"
+        android:layout_toRightOf="@+id/limg"
+        android:background="#44FFFFFF"
+        android:paddingLeft="10dp"
+        
+        android:paddingTop="0dp" >
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/logo_client" >
+        </ImageView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/imgLogo" >
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/VodDetailTitre"
+                style="@style/VodTextTitre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="Titre du film" />
+
+            <TextView
+                android:id="@+id/VodDetailAge"
+                style="@style/VodTextAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/VodDetailTitre"
+                android:text="+12" />
+
+            <TextView
+                android:id="@+id/VodDetailDuree"
+                style="@style/VodTextDuree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/VodDetailTitre"
+                android:text="1h37" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/VodDetailLangue"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/VodDetailDuree" >
+
+                <TextView
+                    android:id="@+id/VodDetailResume"
+                    style="@style/VodTextResume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tomorrow Never Dies\nActors: Pierce Brosnan, Jonathan Pryce, Michelle Yeoh\n Pierce Brosnan stars in this 007 installment, which teams the secret agent and a sey Chinese superspy against a megalomaniacal media mogul\n Date : 1997 \nDuration 1h59" />
+            </ScrollView>
+
+            <TextView
+                android:id="@+id/VodDetailLangue"
+                style="@style/VodTextLang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="en" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
