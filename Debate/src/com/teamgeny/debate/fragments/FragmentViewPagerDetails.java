@@ -50,7 +50,7 @@ public class FragmentViewPagerDetails extends FragmentParent {
 
 	        @Override
 	        public int getCount() {
-	            return 4;
+	            return 2;
 	        }
 	    }
 	
