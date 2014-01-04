@@ -1,5 +1,7 @@
 package com.teamgeny.debate;
 
+import org.json.JSONObject;
+
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -16,6 +18,8 @@ import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.fragments.FragmentHistorique;
 import com.teamgeny.debate.fragments.FragmentHistoryDetails;
 import com.teamgeny.debate.fragments.FragmentNouveauProjet;
+import com.teamgeny.debate.fragments.FragmentViewPagerDetails;
+import com.teamgeny.debate.fragments.PieFragment;
 
 public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
@@ -85,7 +89,7 @@ public class MainActivity extends FragmentActivity {
 
 	public void showFragmentHistoryDetails(String json)
 	{
-		FragmentHistoryDetails f = new FragmentHistoryDetails();
+		FragmentViewPagerDetails f = new FragmentViewPagerDetails();
 		Bundle b = new Bundle();
 		b.putString("debat", json);
 		f.setArguments(b);
@@ -127,5 +131,7 @@ public class MainActivity extends FragmentActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+	
 
 }
