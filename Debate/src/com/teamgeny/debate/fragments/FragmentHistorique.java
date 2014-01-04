@@ -85,7 +85,7 @@ public class FragmentHistorique extends FragmentParent {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				((MainActivity) getActivity()).showFragmentHistoryDetails();
+				((MainActivity) getActivity()).showFragmentHistoryDetails(debates.optJSONObject(arg2).toString());
 			}
 		});
 		listProjects.setAdapter(new JSONAdapter());

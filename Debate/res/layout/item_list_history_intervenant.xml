@@ -7,63 +7,53 @@
         android:layout_width="match_parent"
         android:layout_height="100dp" >
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="18dp"
-            android:singleLine="true"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/black" />
-
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/name"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/duree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/date"
-            android:layout_alignTop="@+id/imageView1"
-            android:gravity="center_vertical"
-            android:text="TextView" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/name"
-            android:layout_alignParentBottom="true"
-            android:src="@android:drawable/ic_btn_speak_now" />
-
-        <TextView
-            android:id="@+id/numInterv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignTop="@+id/imageView2"
-            android:layout_toRightOf="@+id/imageView2"
-            android:gravity="center_vertical"
-            android:text="TextView" />
-
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/duree"
+            android:layout_toLeftOf="@+id/tempsparole"
             android:src="@android:drawable/ic_menu_recent_history" />
+
+        <TextView
+            android:id="@+id/tempsrestant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/imageView1"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imageView1"
+            android:layout_alignParentLeft="true"
+            android:singleLine="true"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/name"
+            android:layout_toLeftOf="@+id/tempsparole"
+            android:src="@android:drawable/ic_btn_speak_now" />
+
+        <TextView
+            android:id="@+id/tempsparole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/name"
+            android:layout_alignLeft="@+id/tempsrestant"
+            android:gravity="center_vertical"
+            android:text="TextView" />
+
     </RelativeLayout>
 
 </RelativeLayout>

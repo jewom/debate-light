@@ -34,36 +34,46 @@ public class FragmentHistoryDetails extends FragmentParent {
 	int numIntervenant;
 	String dureeDebat;
 	ListView listProjects;
-	JSONArray debates = new JSONArray();
+	JSONObject debat = new JSONObject();
 	Context context;
-	
-	public void setList() {
-		((JSONAdapter) listProjects.getAdapter()).notifyDataSetChanged();
-	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		context = getActivity();
+		String d = getArguments().getString("debat");
+		try {
+			debat = new JSONObject(d);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		me = inflater.inflate(R.layout.fragment_history_details, null);
-		listProjects = (ListView)me.findViewById(R.id.listView1);
-		
+		((TextView) me.findViewById(R.id.textView1)).setText(debat
+				.optString("name"));
+		((TextView) me.findViewById(R.id.totalparle)).setText(debat
+				.optString("duree_parlee"));
+		((TextView) me.findViewById(R.id.totalduree)).setText(debat
+				.optString("duree_restante"));
+		listProjects = (ListView) me.findViewById(R.id.listView1);
+
 		listProjects.setAdapter(new JSONAdapter());
-		
+
 		return me;
 	}
-	
+
 	public class JSONAdapter extends BaseAdapter {
 
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return debates.length();
+			return debat.optJSONArray("intervenants").length();
 		}
 
 		@Override
 		public Object getItem(int position) {
 			// TODO Auto-generated method stub
-			return debates.optJSONObject(position);
+			return debat.optJSONArray("intervenants").optJSONObject(position);
 		}
 
 		@Override
@@ -74,18 +84,26 @@ public class FragmentHistoryDetails extends FragmentParent {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			
-			View v = getActivity().getLayoutInflater().inflate(R.layout.item_list_history_intervenant, null);
-			((TextView)v.findViewById(R.id.name)).setText(debates.optJSONObject(position).optString("name"));
-			((TextView)v.findViewById(R.id.date)).setText(debates.optJSONObject(position).optString("date"));
-			((TextView)v.findViewById(R.id.numInterv)).setText(""+debates.optJSONObject(position).optJSONArray("intervenants").length());
 
-			((TextView)v.findViewById(R.id.duree)).setText(debates.optJSONObject(position).optString("duree_totale").substring(0, 5));
+			View v = getActivity().getLayoutInflater().inflate(
+					R.layout.item_list_history_intervenant, null);
+			((TextView) v.findViewById(R.id.name)).setText(debat
+					.optJSONArray("intervenants").optJSONObject(position)
+					.optString("nom"));
+			((TextView) v.findViewById(R.id.tempsparole)).setText(debat
+					.optJSONArray("intervenants").optJSONObject(position)
+					.optString("temps_parle"));
+			((TextView) v.findViewById(R.id.tempsrestant)).setText(debat
+					.optJSONArray("intervenants").optJSONObject(position)
+					.optString("temps_restant"));
+
+			// ((TextView)v.findViewById(R.id.duree)).setText(debates.optJSONObject(position).optString("duree_totale").substring(0,
+			// 5));
 
 			// TODO Auto-generated method stub
 			return v;
 		}
-		
+
 	}
 
 }

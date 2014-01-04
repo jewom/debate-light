@@ -14,6 +14,7 @@ import android.view.View.OnClickListener;
 
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.fragments.FragmentHistorique;
+import com.teamgeny.debate.fragments.FragmentHistoryDetails;
 import com.teamgeny.debate.fragments.FragmentNouveauProjet;
 
 public class MainActivity extends FragmentActivity {
@@ -45,6 +46,19 @@ public class MainActivity extends FragmentActivity {
 		};
 		// Set the drawer toggle as the DrawerListener
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
+		PushScale nouveau = (PushScale) findViewById(R.id.buttonNewProject);
+		nouveau.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mDrawerLayout.closeDrawers();
+				FragmentManager fragmentManager = getSupportFragmentManager();
+			    fragmentManager.beginTransaction()
+			                   .replace(R.id.content_frame, new FragmentNouveauProjet())
+			                   .addToBackStack(null)
+			                   .commit();
+			}
+		});
 		PushScale prev = (PushScale) findViewById(R.id.buttonPastProjects);
 		prev.setOnClickListener(new OnClickListener() {
 			
@@ -63,17 +77,21 @@ public class MainActivity extends FragmentActivity {
 		FragmentManager fragmentManager = getSupportFragmentManager();
 	    fragmentManager.beginTransaction()
 	                   .replace(R.id.content_frame, new FragmentNouveauProjet())
-	                   .addToBackStack(null)
+	                   
 	                   .commit();
 	    
 		
 	}
 
-	public void showFragmentHistoryDetails()
+	public void showFragmentHistoryDetails(String json)
 	{
+		FragmentHistoryDetails f = new FragmentHistoryDetails();
+		Bundle b = new Bundle();
+		b.putString("debat", json);
+		f.setArguments(b);
 		FragmentManager fragmentManager = getSupportFragmentManager();
 	    fragmentManager.beginTransaction()
-	                   .replace(R.id.content_frame, new FragmentNouveauProjet())
+	                   .replace(R.id.content_frame, f)
 	                   .addToBackStack(null)
 	                   .commit();
 	}

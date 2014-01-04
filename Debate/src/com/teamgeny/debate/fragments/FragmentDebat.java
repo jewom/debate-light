@@ -98,12 +98,13 @@ public class FragmentDebat extends FragmentParent {
 		for (int k = 0; k < realTimeLeft.size(); k++) {
 			sum += realTimeLeft.get(k);
 		}
-		sum = dureeTotaleNB - sum;
+		// sum = dureeTotaleNB - sum;
 		JSONObject obj = new JSONObject();
 		try {
 			obj.put("name", getArguments().getString("name", "noname"));
 			obj.put("duree_totale", formatHours(dureeTotaleNB));
-			obj.put("duree_restante", formatHours(sum));
+			obj.put("duree_restante", formatHours(dureeTotaleNB - sum));
+			obj.put("duree_parlee", formatHours(sum));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -114,26 +115,27 @@ public class FragmentDebat extends FragmentParent {
 			JSONObject in = new JSONObject();
 			in.put("nom", listInterv.get(i));
 			in.put("temps_parle", formatHours(realTimeLeft.get(i)));
-			long secRemain = ((dureeTotaleNB / numIntervenant) - realTimeLeft.get(i));
+			long secRemain = ((dureeTotaleNB / numIntervenant) - realTimeLeft
+					.get(i));
 			in.put("temps_restant", formatHours(secRemain));
 			intervenants.put(i, in);
 		}
 		obj.put("intervenants", intervenants);
-		//Toast.makeText(getActivity(), obj.toString(), Toast.LENGTH_LONG).show();
+		// Toast.makeText(getActivity(), obj.toString(),
+		// Toast.LENGTH_LONG).show();
 		Log.d("JSON", obj.toString(1));
-		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss",
-		 Locale.US);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss",
+				Locale.US);
+
+		String FILENAME = "debat_"
+				+ sdf.format(Calendar.getInstance().getTime()) + ".json";
 		
-		 String FILENAME =
-		 "debat_"+sdf.format(Calendar.getInstance().getTime())+".json";
-		 String string = "hello world!";
-		
-		 String pathdebate = FILENAME;
+		String pathdebate = FILENAME;
 		// Toast.makeText(getActivity(), pathdebate, Toast.LENGTH_SHORT).show();
-		 FileOutputStream fos = getActivity().openFileOutput(pathdebate,
-		 Context.MODE_PRIVATE);
-		 fos.write(obj.toString().getBytes());
-		 fos.close();
+		FileOutputStream fos = getActivity().openFileOutput(pathdebate,
+				Context.MODE_PRIVATE);
+		fos.write(obj.toString().getBytes());
+		fos.close();
 	}
 
 	public String formatHours(long secRemain) {
@@ -206,12 +208,18 @@ public class FragmentDebat extends FragmentParent {
 							public void onChronometerTick(
 									Chronometer chronometer) {
 								movableTotal -= 1;
-								long movableClean = Math.abs(movableTotal);
 
 								long l = (SystemClock.elapsedRealtime() - chronometer
 										.getBase()) / 1000;
 								realTimeLeft.set(j, l);
 								long secRemain = ((dureeTotaleNB / numIntervenant) - l);
+								
+								long percent = l * 25 / 100;
+								
+								if (secRemain == percent)
+								{
+									Toast.makeText(getActivity(), "25%", Toast.LENGTH_SHORT).show();
+								}
 								((TextView) p.findViewById(R.id.textView5))
 										.setText(formatHours(l));
 								secRemain = Math.abs(secRemain);
