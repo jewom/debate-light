@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Debate</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="new_project">Nouveau Projet</string>
-    <string name="past_project">Projets précédents</string>
-    <string name="settings">Réglages</string>
-    <string name="about_this_app">A propos</string>
-    <string name="project_name">Nom du projet</string>
-    <string name="duration_of_debate">Durée du débat</string>
-    <string name="number_of_speaker">Nombre d\'intervenants</string>
-    <string name="go">Valider</string>
-    <string name="home">Accueil</string>
-    <string name="speaker">Intervenant</string>
-    <string name="time_spoken">Temps de parole</string>
-    <string name="remaining_time">Temps restant</string>
-    <string name="add_speaker">Ajouter un intervenant</string>
-    <string name="list_speaker">Liste des intervenants</string>
-    <string name="terminate">Terminer le débat</string>
+    
+    <!-- Menu -->
+    <string name="new_project">New project</string>
+    <string name="past_project">Past projects</string>
+    <string name="settings">Settings</string>
+    <string name="about_this_app">About</string>
+    
+    <!-- New project -->
+    <string name="project_name">Project name</string>
+    <string name="duration_of_debate">Duration of the debate</string>
+    <string name="number_of_speaker">Number of speaker</string>
+    <string name="go">Go</string>
+    <string name="speaker">Speaker</string>
+    <string name="time_spoken">Time spoken</string>
+    <string name="remaining_time">Remaining time</string>
+    <string name="add_speaker">Add a speaker</string>
+    <string name="list_speaker">List of speakers</string>
+    <string name="terminate">Finish the debate</string>
 
 </resources>

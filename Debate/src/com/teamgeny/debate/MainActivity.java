@@ -3,6 +3,7 @@ package com.teamgeny.debate;
 import org.json.JSONObject;
 
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
@@ -35,17 +36,17 @@ public class MainActivity extends FragmentActivity {
 		mDrawerLayout, /* DrawerLayout object */
 		R.drawable.ic_launcher, /* nav drawer icon to replace 'Up' caret */
 		R.string.app_name, /* "open drawer" description */
-		R.string.hello_world /* "close drawer" description */
+		R.string.app_name /* "close drawer" description */
 		) {
 
 			/** Called when a drawer has settled in a completely closed state. */
 			public void onDrawerClosed(View view) {
-				getActionBar().setTitle("close");
+				getActionBar().setTitle(getString(com.teamgeny.debate.R.string.app_name));
 			}
 
 			/** Called when a drawer has settled in a completely open state. */
 			public void onDrawerOpened(View drawerView) {
-				getActionBar().setTitle("open");
+				getActionBar().setTitle(getString(com.teamgeny.debate.R.string.app_name));
 			}
 		};
 		// Set the drawer toggle as the DrawerListener
