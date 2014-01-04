@@ -1,0 +1,21 @@
+<resources>
+    
+    <!-- Menu -->
+    <string name="new_project">"Nuevo proyecto"</string>
+    <string name="past_project">"Proyectos anteriores"</string>
+    <string name="settings">"Configuración"</string>
+    <string name="about_this_app">"Acerca de"</string>
+    
+    <!-- New project -->
+    <string name="project_name">"Nombre del proyecto"</string>
+    <string name="duration_of_debate">"Duración del debate"</string>
+    <string name="number_of_speaker">"Cantidad de participantes"</string>
+    <string name="go">"Ir"</string>
+    <string name="speaker">"Participantes"</string>
+    <string name="time_spoken">"Tiempo de intervención"</string>
+    <string name="remaining_time">"Tiempo restante"</string>
+    <string name="add_speaker">"Añadir un participante"</string>
+    <string name="list_speaker">"Lista de participantes"</string>
+    <string name="terminate">"Termina el debate"</string>
+
+</resources>
