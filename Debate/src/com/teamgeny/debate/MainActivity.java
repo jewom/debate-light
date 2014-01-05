@@ -19,6 +19,7 @@ import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.fragments.FragmentAbout;
 import com.teamgeny.debate.fragments.FragmentHistorique;
 import com.teamgeny.debate.fragments.FragmentHistoryDetails;
+import com.teamgeny.debate.fragments.FragmentHome;
 import com.teamgeny.debate.fragments.FragmentNouveauProjet;
 import com.teamgeny.debate.fragments.FragmentViewPagerDetails;
 import com.teamgeny.debate.fragments.PieFragment;
@@ -96,7 +97,7 @@ public class MainActivity extends FragmentActivity {
 		getActionBar().setHomeButtonEnabled(true);
 		FragmentManager fragmentManager = getSupportFragmentManager();
 	    fragmentManager.beginTransaction()
-	                   .replace(R.id.content_frame, new FragmentNouveauProjet())
+	                   .replace(R.id.content_frame, new FragmentHome())
 	                   
 	                   .commit();
 	    
