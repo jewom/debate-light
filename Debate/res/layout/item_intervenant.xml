@@ -14,7 +14,7 @@
         android:singleLine="true"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/black" />
 
     <Chronometer
         android:id="@+id/textView2"
@@ -48,6 +48,6 @@
         android:singleLine="true"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/holo_red_dark" />
 
 </RelativeLayout>

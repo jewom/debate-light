@@ -102,7 +102,7 @@
             android:background="@drawable/rounded_corners_green"
             android:padding="10dp"
             android:text="@string/go"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
     </com.liltof.library.tools.PushScale>
 
