@@ -29,7 +29,7 @@ public class FragmentAbout extends FragmentParent {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		me = inflater.inflate(R.layout.fragment_nouveau_projet, null);
+		me = inflater.inflate(R.layout.fragment_about, null);
 	
 		return me;
 	}

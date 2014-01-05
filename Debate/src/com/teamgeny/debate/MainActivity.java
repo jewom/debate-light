@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.liltof.library.tools.PushScale;
+import com.teamgeny.debate.fragments.FragmentAbout;
 import com.teamgeny.debate.fragments.FragmentHistorique;
 import com.teamgeny.debate.fragments.FragmentHistoryDetails;
 import com.teamgeny.debate.fragments.FragmentNouveauProjet;
@@ -51,6 +52,19 @@ public class MainActivity extends FragmentActivity {
 		};
 		// Set the drawer toggle as the DrawerListener
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
+		PushScale about = (PushScale) findViewById(R.id.buttonAbout);
+		about.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mDrawerLayout.closeDrawers();
+				FragmentManager fragmentManager = getSupportFragmentManager();
+			    fragmentManager.beginTransaction()
+			                   .replace(R.id.content_frame, new FragmentAbout())
+			                   .addToBackStack(null)
+			                   .commit();
+			}
+		});
 		PushScale nouveau = (PushScale) findViewById(R.id.buttonNewProject);
 		nouveau.setOnClickListener(new OnClickListener() {
 			
@@ -64,6 +78,7 @@ public class MainActivity extends FragmentActivity {
 			                   .commit();
 			}
 		});
+		
 		PushScale prev = (PushScale) findViewById(R.id.buttonPastProjects);
 		prev.setOnClickListener(new OnClickListener() {
 			
