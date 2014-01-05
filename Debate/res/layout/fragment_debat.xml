@@ -188,7 +188,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/terminate"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/black" />
     </com.liltof.library.tools.PushScale>
 
 </RelativeLayout>
