@@ -193,7 +193,7 @@
                     android:textStyle="italic" />
 
                 <ImageView
-                    android:id="@+id/imageViewMailC"
+                    android:id="@+id/imageViewMailM"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_alignParentRight="true"
@@ -201,19 +201,19 @@
                     android:src="@drawable/mail_selector" />
 
                 <ImageView
-                    android:id="@+id/imageViewTwittC"
+                    android:id="@+id/imageViewTwittM"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_alignParentTop="true"
-                    android:layout_toLeftOf="@+id/imageViewMailC"
+                    android:layout_toLeftOf="@+id/imageViewMailM"
                     android:src="@drawable/twitter_selector" />
 
                 <ImageView
-                    android:id="@+id/imageViewFbC"
+                    android:id="@+id/imageViewFbM"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_alignParentTop="true"
-                    android:layout_toLeftOf="@+id/imageViewTwittC"
+                    android:layout_toLeftOf="@+id/imageViewTwittM"
                     android:src="@drawable/facebook_selector" />
 
             </RelativeLayout>
