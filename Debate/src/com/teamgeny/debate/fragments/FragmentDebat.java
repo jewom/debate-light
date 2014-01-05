@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -129,7 +130,7 @@ public class FragmentDebat extends FragmentParent {
 
 		String FILENAME = "debat_"
 				+ sdf.format(Calendar.getInstance().getTime()) + ".json";
-		
+
 		String pathdebate = FILENAME;
 		// Toast.makeText(getActivity(), pathdebate, Toast.LENGTH_SHORT).show();
 		FileOutputStream fos = getActivity().openFileOutput(pathdebate,
@@ -213,12 +214,11 @@ public class FragmentDebat extends FragmentParent {
 										.getBase()) / 1000;
 								realTimeLeft.set(j, l);
 								long secRemain = ((dureeTotaleNB / numIntervenant) - l);
-								
-								long percent = l * 25 / 100;
-								
-								if (secRemain == percent)
-								{
-									Toast.makeText(getActivity(), "25%", Toast.LENGTH_SHORT).show();
+
+								long percent = (dureeTotaleNB / numIntervenant) * 25 / 100;
+
+								if (secRemain == percent) {
+									playBipOrVibrate();
 								}
 								((TextView) p.findViewById(R.id.textView5))
 										.setText(formatHours(l));
@@ -255,6 +255,15 @@ public class FragmentDebat extends FragmentParent {
 		}
 		// TODO Auto-generated method stub
 		return me;
+	}
+
+	protected void playBipOrVibrate() {
+		Toast.makeText(getActivity(), "25%", Toast.LENGTH_SHORT).show();
+		int resID = getResources()
+				.getIdentifier("alarm_electro", "raw", getActivity().getPackageName());
+
+		MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(), resID);
+		mediaPlayer.start();
 	}
 
 }
