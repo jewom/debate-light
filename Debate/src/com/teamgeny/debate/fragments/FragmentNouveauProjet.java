@@ -102,7 +102,7 @@ public class FragmentNouveauProjet extends FragmentParent {
 		// TODO Auto-generated method stub
 		return me;
 	}
-
+	private int val = 1;
 	public void showNumPicker() {
 
 		final Dialog d = new Dialog(getActivity());
@@ -112,7 +112,8 @@ public class FragmentNouveauProjet extends FragmentParent {
 		final NumberPicker np = (NumberPicker) d
 				.findViewById(R.id.numberPicker1);
 		np.setMaxValue(8);
-		np.setMinValue(2);
+		np.setMinValue(1);
+		np.setValue(val);
 		np.setWrapSelectorWheel(false);
 		np.setOnValueChangedListener(new OnValueChangeListener() {
 
@@ -120,15 +121,15 @@ public class FragmentNouveauProjet extends FragmentParent {
 			public void onValueChange(NumberPicker picker, int oldVal,
 					int newVal) {
 
-				((TextView) me.findViewById(R.id.textNumberOfSpeakers))
-						.setText("" + newVal);
+				val = newVal;
 
 			}
 		});
 		b1.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// tv.setText(String.valueOf(np.getValue()));
+				((TextView) me.findViewById(R.id.textNumberOfSpeakers))
+				.setText("" + val);
 				d.dismiss();
 			}
 		});

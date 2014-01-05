@@ -28,6 +28,8 @@ import android.widget.Toast;
 
 import com.teamgeny.debate.MainActivity;
 import com.teamgeny.debate.R;
+import com.teamgeny.debate.SwipeDismissListViewTouchListener;
+import com.teamgeny.debate.SwipeDismissListViewTouchListener.DismissCallbacks;
 
 public class FragmentHistorique extends FragmentParent {
 	View me;
@@ -80,6 +82,25 @@ public class FragmentHistorique extends FragmentParent {
 		context = getActivity();
 		me = inflater.inflate(R.layout.fragment_liste_historique, null);
 		listProjects = (ListView)me.findViewById(R.id.listView1);
+		SwipeDismissListViewTouchListener touchListener =
+				          new SwipeDismissListViewTouchListener(
+				        		  listProjects,
+				                  new DismissCallbacks() {
+				                      public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+				                          for (int position : reverseSortedPositions) {
+				                            //  adapter.remove(adapter.getItem(position));
+				                          }
+				                          //adapter.notifyDataSetChanged();
+				                      }
+
+									@Override
+									public boolean canDismiss(int position) {
+										// TODO Auto-generated method stub
+										return true;
+									}
+				                  });
+		listProjects.setOnTouchListener(touchListener);
+		listProjects.setOnScrollListener(touchListener.makeScrollListener());
 		listProjects.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

@@ -41,12 +41,12 @@ public class MainActivity extends FragmentActivity {
 
 			/** Called when a drawer has settled in a completely closed state. */
 			public void onDrawerClosed(View view) {
-				getActionBar().setTitle(getString(com.teamgeny.debate.R.string.app_name));
+				//getActionBar().setTitle(getString(com.teamgeny.debate.R.string.app_name));
 			}
 
 			/** Called when a drawer has settled in a completely open state. */
 			public void onDrawerOpened(View drawerView) {
-				getActionBar().setTitle(getString(com.teamgeny.debate.R.string.app_name));
+				//getActionBar().setTitle(getString(com.teamgeny.debate.R.string.app_name));
 			}
 		};
 		// Set the drawer toggle as the DrawerListener
