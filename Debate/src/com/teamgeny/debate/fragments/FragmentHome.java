@@ -40,6 +40,45 @@ public class FragmentHome extends FragmentParent {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		me = inflater.inflate(R.layout.fragment_home, null);
+		
+		PushScale newp = (PushScale) me.findViewById(R.id.btn_new);
+		newp.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				FragmentManager fragmentManager = getFragmentManager();
+			    fragmentManager.beginTransaction()
+			                   .replace(R.id.content_frame, new FragmentNouveauProjet())
+			                   .addToBackStack(null)
+			                   .commit();
+			}
+		});
+		
+		PushScale open = (PushScale) me.findViewById(R.id.btn_open);
+		open.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				FragmentManager fragmentManager = getFragmentManager();
+			    fragmentManager.beginTransaction()
+			                   .replace(R.id.content_frame, new FragmentHistorique())
+			                   .addToBackStack(null)
+			                   .commit();
+			}
+		});
+		
+		PushScale about = (PushScale) me.findViewById(R.id.btn_about);
+		about.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				FragmentManager fragmentManager = getFragmentManager();
+			    fragmentManager.beginTransaction()
+			                   .replace(R.id.content_frame, new FragmentAbout())
+			                   .addToBackStack(null)
+			                   .commit();
+			}
+		});
 
 		return me;
 	}

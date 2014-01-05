@@ -138,6 +138,17 @@
                     android:textSize="15sp" />
             </com.liltof.library.tools.PushScale>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/welcome"
+            android:textSize="33dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
     </RelativeLayout>
 
 </RelativeLayout>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
+    <!-- Before -->
+    <string name="welcome">Welcome!</string>
+    
     <!-- Menu -->
     <string name="new_project">New project</string>
     <string name="past_project">Past projects</string>
