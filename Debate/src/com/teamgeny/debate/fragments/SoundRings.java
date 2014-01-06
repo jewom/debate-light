@@ -5,6 +5,7 @@ import org.json.JSONException;
 
 public class SoundRings {
 	static final String s = "[" +
+	"{'name' : 'none', 'display' : '----'},"+
 	"{'name' : 'alarm_electro', 'display' : 'Alarm Electro'},"+
 	"{'name' : 'beep_money', 'display' : 'Beep Money'},"+
 	"{'name' : 'blip', 'display' : 'Blip'},"+
@@ -24,6 +25,9 @@ public class SoundRings {
 	"{'name' : 'ting', 'display' : 'Ting'},"+
 	"{'name' : 'velo1', 'display' : 'Velo'}"+
 	"]";
+	static final String defaultFinDebat = "gare_02";
+	static final String defaultFinUnePers = "gare_01";
+	static final String defaultPercent = "comlo";
 	static JSONArray listSounds() throws JSONException
 	{
 		

@@ -25,6 +25,7 @@ import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.liltof.library.tools.PreferenceManager;
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.R;
 
@@ -155,7 +156,10 @@ public class FragmentDebat extends FragmentParent {
 				+ ":"
 				+ (secRemain % 60 > 9 ? secRemain % 60 : "0" + secRemain % 60);
 	}
-
+	private String soundEndDebat;
+	private String soundEndPersonne;
+	private String soundPercent;
+	private int valuePercent;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -168,6 +172,16 @@ public class FragmentDebat extends FragmentParent {
 		listPush.add(R.id.speaker7);
 		listPush.add(R.id.speaker8);
 
+		
+		soundEndDebat = PreferenceManager.getArbitraryPref(getActivity(), "soundend", SoundRings.defaultFinDebat);
+
+		soundEndPersonne = PreferenceManager.getArbitraryPref(getActivity(), "soundparoleend", SoundRings.defaultFinUnePers);
+
+		soundPercent =  PreferenceManager.getArbitraryPref(getActivity(), "soundparolepercent", SoundRings.defaultPercent);
+
+		valuePercent = Integer.parseInt(PreferenceManager.getArbitraryPref(getActivity(), "percentsounddebat", "25"));
+
+		
 		numIntervenant = getArguments().getInt("numInterv", 2);
 		dureeDebat = getArguments().getString("dureeDebat", "00:01");
 		String[] t = dureeDebat.split(":");
@@ -215,11 +229,14 @@ public class FragmentDebat extends FragmentParent {
 								realTimeLeft.set(j, l);
 								long secRemain = ((dureeTotaleNB / numIntervenant) - l);
 
-								long percent = (dureeTotaleNB / numIntervenant) * 25 / 100;
+								long percent = (dureeTotaleNB / numIntervenant) * valuePercent / 100;
 
 								if (secRemain == percent) {
-									playBipOrVibrate();
+									playBipOrVibrate(soundPercent);
 								}
+								if (secRemain == 0)
+									playBipOrVibrate(soundEndPersonne);
+								
 								((TextView) p.findViewById(R.id.textView5))
 										.setText(formatHours(l));
 								secRemain = Math.abs(secRemain);
@@ -232,7 +249,8 @@ public class FragmentDebat extends FragmentParent {
 									sum += realTimeLeft.get(k);
 								}
 								sum = dureeTotaleNB - sum;
-
+								if (sum == 0)
+									playBipOrVibrate(soundEndDebat);
 								((TextView) me.findViewById(R.id.RemainingAll))
 										.setText(formatHours(sum));
 							}
@@ -248,7 +266,7 @@ public class FragmentDebat extends FragmentParent {
 			else {
 				me.findViewById(listPush.get(i - 1)).setVisibility(View.GONE);
 			}
-
+			
 			((TextView) me.findViewById(R.id.RemainingAll))
 					.setText(formatHours(movableTotal));
 
@@ -256,13 +274,21 @@ public class FragmentDebat extends FragmentParent {
 		// TODO Auto-generated method stub
 		return me;
 	}
-
-	protected void playBipOrVibrate() {
-		Toast.makeText(getActivity(), "25%", Toast.LENGTH_SHORT).show();
+	MediaPlayer mediaPlayer ;
+	protected void playBipOrVibrate(String sound) {
+		if (sound.contentEquals("none"))
+			return;
 		int resID = getResources()
-				.getIdentifier("alarm_electro", "raw", getActivity().getPackageName());
-
-		MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(), resID);
+				.getIdentifier(sound, "raw", getActivity().getPackageName());
+		if (mediaPlayer == null)
+			mediaPlayer = MediaPlayer.create(getActivity(), resID);
+		else
+		{
+			mediaPlayer.stop();
+			mediaPlayer.release();
+			mediaPlayer = MediaPlayer.create(getActivity(), resID);
+		}
+		
 		mediaPlayer.start();
 	}
 

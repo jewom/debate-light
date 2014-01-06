@@ -38,10 +38,10 @@ public class PreferenceManager {
 		edit.putString(name, value);
 		edit.commit();
 	}
-	public static String getArbitraryPref(Context ctx, String name)
+	public static String getArbitraryPref(Context ctx, String name, String def)
 	{
 		SharedPreferences userDetails = ctx.getSharedPreferences("userdetails", Context.MODE_PRIVATE);
-		String pass = userDetails.getString(name, "");
+		String pass = userDetails.getString(name, def);
 		return pass;
 	}
 }
