@@ -15,6 +15,7 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -156,10 +157,12 @@ public class FragmentDebat extends FragmentParent {
 				+ ":"
 				+ (secRemain % 60 > 9 ? secRemain % 60 : "0" + secRemain % 60);
 	}
+
 	private String soundEndDebat;
 	private String soundEndPersonne;
 	private String soundPercent;
 	private int valuePercent;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -172,16 +175,18 @@ public class FragmentDebat extends FragmentParent {
 		listPush.add(R.id.speaker7);
 		listPush.add(R.id.speaker8);
 
-		
-		soundEndDebat = PreferenceManager.getArbitraryPref(getActivity(), "soundend", SoundRings.defaultFinDebat);
+		soundEndDebat = PreferenceManager.getArbitraryPref(getActivity(),
+				"soundend", SoundRings.defaultFinDebat);
 
-		soundEndPersonne = PreferenceManager.getArbitraryPref(getActivity(), "soundparoleend", SoundRings.defaultFinUnePers);
+		soundEndPersonne = PreferenceManager.getArbitraryPref(getActivity(),
+				"soundparoleend", SoundRings.defaultFinUnePers);
 
-		soundPercent =  PreferenceManager.getArbitraryPref(getActivity(), "soundparolepercent", SoundRings.defaultPercent);
+		soundPercent = PreferenceManager.getArbitraryPref(getActivity(),
+				"soundparolepercent", SoundRings.defaultPercent);
 
-		valuePercent = Integer.parseInt(PreferenceManager.getArbitraryPref(getActivity(), "percentsounddebat", "25"));
+		valuePercent = Integer.parseInt(PreferenceManager.getArbitraryPref(
+				getActivity(), "percentsounddebat", "25"));
 
-		
 		numIntervenant = getArguments().getInt("numInterv", 2);
 		dureeDebat = getArguments().getString("dureeDebat", "00:01");
 		String[] t = dureeDebat.split(":");
@@ -229,17 +234,18 @@ public class FragmentDebat extends FragmentParent {
 								realTimeLeft.set(j, l);
 								long secRemain = ((dureeTotaleNB / numIntervenant) - l);
 
-								long percent = (dureeTotaleNB / numIntervenant) * valuePercent / 100;
+								long percent = (dureeTotaleNB / numIntervenant)
+										* valuePercent / 100;
 
 								if (secRemain == percent) {
-									playBipOrVibrate(soundPercent);
+									playBipOrVibrate(soundPercent, 2);
 								}
 								if (secRemain == 0)
-									playBipOrVibrate(soundEndPersonne);
-								
+									playBipOrVibrate(soundEndPersonne, 1);
+
 								((TextView) p.findViewById(R.id.textView5))
 										.setText(formatHours(l));
-								secRemain = Math.abs(secRemain);
+								//secRemain = Math.abs(secRemain);
 								((TextView) p.findViewById(R.id.textView3))
 										.setText(formatHours(secRemain));
 								Log.d("Time left", "" + "((" + dureeTotaleNB
@@ -250,7 +256,7 @@ public class FragmentDebat extends FragmentParent {
 								}
 								sum = dureeTotaleNB - sum;
 								if (sum == 0)
-									playBipOrVibrate(soundEndDebat);
+									playBipOrVibrate(soundEndDebat, 0);
 								((TextView) me.findViewById(R.id.RemainingAll))
 										.setText(formatHours(sum));
 							}
@@ -266,7 +272,7 @@ public class FragmentDebat extends FragmentParent {
 			else {
 				me.findViewById(listPush.get(i - 1)).setVisibility(View.GONE);
 			}
-			
+
 			((TextView) me.findViewById(R.id.RemainingAll))
 					.setText(formatHours(movableTotal));
 
@@ -274,21 +280,40 @@ public class FragmentDebat extends FragmentParent {
 		// TODO Auto-generated method stub
 		return me;
 	}
-	MediaPlayer mediaPlayer ;
-	protected void playBipOrVibrate(String sound) {
+
+	MediaPlayer mediaPlayer;
+	ArrayList<long[]> paterns = new ArrayList<long[]>();
+
+	protected void playBipOrVibrate(String sound, int pos) {
+		paterns.clear();
+		if (PreferenceManager.getArbitraryPref(getActivity(), "vibreur", "off")
+				.contentEquals("on")) {
+			paterns.add(new long[] { 0, 1000, 500, 1000 });
+			paterns.add(new long[] { 0, 400, 100, 400 });
+			paterns.add(new long[] { 0, 500 });
+			Vibrator v = (Vibrator) getActivity().getSystemService(
+					Context.VIBRATOR_SERVICE);
+
+			// Start without a delay
+			// Each element then alternates between vibrate, sleep, vibrate,
+			// sleep...
+
+			// The '-1' here means to vibrate once
+			// '0' would make the pattern vibrate indefinitely
+			v.vibrate(paterns.get(pos), -1);
+		}
 		if (sound.contentEquals("none"))
 			return;
-		int resID = getResources()
-				.getIdentifier(sound, "raw", getActivity().getPackageName());
+		int resID = getResources().getIdentifier(sound, "raw",
+				getActivity().getPackageName());
 		if (mediaPlayer == null)
 			mediaPlayer = MediaPlayer.create(getActivity(), resID);
-		else
-		{
+		else {
 			mediaPlayer.stop();
 			mediaPlayer.release();
 			mediaPlayer = MediaPlayer.create(getActivity(), resID);
 		}
-		
+
 		mediaPlayer.start();
 	}
 

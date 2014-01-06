@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -27,7 +30,22 @@ public class FragmentSettings extends FragmentParent {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		me = inflater.inflate(R.layout.fragment_settings, null);
-		
+		CheckBox vibreur = (CheckBox) me.findViewById(R.id.checkBox1);
+		if (PreferenceManager.getArbitraryPref(getActivity(), "vibreur", "off")
+				.contentEquals("on"))
+			vibreur.setChecked(true);
+		vibreur.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked)
+				{
+					PreferenceManager.setArbitraryPref(getActivity(), "vibreur", "on");
+				}
+				else
+					PreferenceManager.setArbitraryPref(getActivity(), "vibreur", "off");
+			}
+		});
 		me.findViewById(R.id.sound1).setOnClickListener(new View.OnClickListener() {
 			
 			@Override
