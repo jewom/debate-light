@@ -79,6 +79,18 @@ public class FragmentHome extends FragmentParent {
 			                   .commit();
 			}
 		});
+		PushScale settings = (PushScale) me.findViewById(R.id.btn_settings);
+		settings.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				FragmentManager fragmentManager = getFragmentManager();
+			    fragmentManager.beginTransaction()
+			                   .replace(R.id.content_frame, new FragmentSettings())
+			                   .addToBackStack(null)
+			                   .commit();
+			}
+		});
 
 		return me;
 	}

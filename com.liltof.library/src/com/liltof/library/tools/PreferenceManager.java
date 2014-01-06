@@ -31,4 +31,17 @@ public class PreferenceManager {
 		String pass = userDetails.getString("password", "");
 		return pass;
 	}
+	public static void setArbitraryPref(Context ctx,String name, String value)
+	{
+		SharedPreferences userDetails = ctx.getSharedPreferences("userdetails", Context.MODE_PRIVATE);
+		Editor edit = userDetails.edit();
+		edit.putString(name, value);
+		edit.commit();
+	}
+	public static String getArbitraryPref(Context ctx, String name)
+	{
+		SharedPreferences userDetails = ctx.getSharedPreferences("userdetails", Context.MODE_PRIVATE);
+		String pass = userDetails.getString(name, "");
+		return pass;
+	}
 }
