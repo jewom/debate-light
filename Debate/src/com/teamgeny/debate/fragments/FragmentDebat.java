@@ -39,7 +39,6 @@ public class FragmentDebat extends FragmentParent {
 	ArrayList<Long> timePassed = new ArrayList<Long>();
 	ArrayList<Boolean> activated = new ArrayList<Boolean>();
 	ArrayList<Long> realTimeLeft = new ArrayList<Long>();
-
 	long dureeTotaleNB = 0;
 	long movableTotal = 0;
 	int current = -1;
@@ -118,6 +117,8 @@ public class FragmentDebat extends FragmentParent {
 			JSONObject in = new JSONObject();
 			in.put("nom", listInterv.get(i));
 			in.put("temps_parle", formatHours(realTimeLeft.get(i)));
+			in.put("secondes_parlees", realTimeLeft.get(i));
+
 			long secRemain = ((dureeTotaleNB / numIntervenant) - realTimeLeft
 					.get(i));
 			in.put("temps_restant", formatHours(secRemain));

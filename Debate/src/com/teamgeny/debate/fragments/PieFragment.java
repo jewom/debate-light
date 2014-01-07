@@ -23,6 +23,12 @@
 
 package com.teamgeny.debate.fragments;
 
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -36,26 +42,46 @@ import com.teamgeny.debate.R;
 
 public class PieFragment extends FragmentParent {
 	PieGraph pg;
-
+	ArrayList<String> colors = new ArrayList<String>();
+	JSONObject debat;
+	JSONArray interv;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		
+		String d = getArguments().getString("debat");
+		try {
+			debat = new JSONObject(d);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		colors.add("#e31a1c");
+		colors.add("#377db8");
+		colors.add("#4daf4a");
+		colors.add("#984ea3");
+		colors.add("#ff7f00");
+		colors.add("#ffff33");
+		colors.add("#a65628"); 
+		colors.add("#f781bf");
+
 		View v = inflater.inflate(R.layout.fragment_piegraph, container,
 				false);
 		pg = (PieGraph) v.findViewById(R.id.piegraph);
-		PieSlice slice = new PieSlice();
-		slice.setColor(Color.parseColor("#99CC00"));
-		slice.setValue(2);
-		pg.addSlice(slice);
-		slice = new PieSlice();
-		slice.setColor(Color.parseColor("#FFBB33"));
-		slice.setValue(3);
-		pg.addSlice(slice);
-		slice = new PieSlice();
-		slice.setColor(Color.parseColor("#AA66CC"));
-		slice.setValue(8);
-		pg.addSlice(slice);
+		 interv = debat.optJSONArray("intervenants");
+		
+		for (int i = 0; i < interv.length(); i++)
+		{
+			PieSlice slice = new PieSlice();
+			slice.setColor(Color.parseColor(colors.get(i)));
+			try {
+				slice.setValue(interv.getJSONObject(i).getLong("secondes_parlees"));
+				pg.addSlice(slice);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 
 		pg.setOnSliceClickedListener(new OnSliceClickedListener() {
 
