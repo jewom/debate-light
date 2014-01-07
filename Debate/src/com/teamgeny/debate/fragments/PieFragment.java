@@ -30,10 +30,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieGraph.OnSliceClickedListener;
@@ -68,13 +73,28 @@ public class PieFragment extends FragmentParent {
 				false);
 		pg = (PieGraph) v.findViewById(R.id.piegraph);
 		 interv = debat.optJSONArray("intervenants");
-		
+		LinearLayout l = (LinearLayout) v.findViewById(R.id.layout_legend);
 		for (int i = 0; i < interv.length(); i++)
 		{
 			PieSlice slice = new PieSlice();
+			int color = Color.parseColor(colors.get(i));
 			slice.setColor(Color.parseColor(colors.get(i)));
+			View line = inflater.inflate(R.layout.item_graph_legend, container,
+					false);
+			try {
+				((TextView)line.findViewById(R.id.textView1)).setText(interv.getJSONObject(i).getString("nom"));
+				Drawable img = getActivity().getResources().getDrawable(R.drawable.rounded_white);
+				img.setColorFilter( color, PorterDuff.Mode.MULTIPLY );
+				((ImageView)line.findViewById(R.id.imageView1)).setImageDrawable(img);
+				l.addView(line);
+				
+			} catch (JSONException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			try {
 				slice.setValue(interv.getJSONObject(i).getLong("secondes_parlees"));
+				
 				pg.addSlice(slice);
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block

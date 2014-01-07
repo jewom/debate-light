@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
-    
+    android:layout_height="match_parent" >
+
     <com.echo.holographlibrary.PieGraph
+        android:id="@+id/piegraph"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/piegraph"/>
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" />
 
-</LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/piegraph" >
+
+        <LinearLayout
+            android:id="@+id/layout_legend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_alignTop="@+id/scrollView1"
+        android:alpha="0.4"
+        android:background="@drawable/drop_shadow" >
+    </RelativeLayout>
+</RelativeLayout>

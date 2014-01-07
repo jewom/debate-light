@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.teamgeny.debate.R;
+import com.viewpagerindicator.TitlePageIndicator;
 
 public class FragmentViewPagerDetails extends FragmentParent {
 	View me;
@@ -32,6 +33,8 @@ public class FragmentViewPagerDetails extends FragmentParent {
 		me = inflater.inflate(R.layout.fragment_viewpager_details_historique, null);
 		ViewPager pager = (ViewPager) me.findViewById(R.id.pager);
 		pager.setAdapter(new ScreenSlidePagerAdapter(getChildFragmentManager()));
+		TitlePageIndicator indicator = (TitlePageIndicator) me.findViewById(R.id.indicator);
+		indicator.setViewPager(pager);
 		
 		return me;
 	}
@@ -47,7 +50,11 @@ public class FragmentViewPagerDetails extends FragmentParent {
 	        	
 	            return f;
 	        }
-
+	        @Override
+	        public CharSequence getPageTitle(int position) {
+	        // TODO Auto-generated method stub
+	        return position == 0 ? "DETAILS" : "GRAPHIQUE";
+	        }
 	        @Override
 	        public int getCount() {
 	            return 2;
