@@ -21,7 +21,14 @@
     <string name="add_speaker">Ajouter un intervenant</string>
     <string name="list_speaker">Liste des intervenants</string>
     <string name="terminate">Terminer le débat</string>
-        <string name="confirm_delete">Êtes vous sur de vouloir supprimer?</string>
-    
+    <string name="confirm_delete">Êtes vous sur de vouloir supprimer?</string>
+  
+    <!-- Settings -->
+    <string name="sound_end_debate">Son à jouer à la fin du débat</string>
+    <string name="sound_end_speaker">Son à jouer après le temps de parole d\'un intervenant</string>
+    <string name="sound_close_end">Son à jouer quand la fin du temps de parole est proche</string>
+    <string name="sound_percent">Temps restant à partir duquel se joue le son (en %).</string>
+    <string name="vibrator">Utiliser le vibreur</string>
+    <string name="edit">Modifier</string>
 
 </resources>

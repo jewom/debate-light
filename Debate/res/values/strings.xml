@@ -27,7 +27,7 @@
     <string name="sound_end_debate">Sound to play at the end of the debate</string>
     <string name="sound_end_speaker">Sound to play at the end of speaking time</string>
     <string name="sound_close_end">Sound to play when the time is soon over.</string>
-    <string name="sound_percent">Talk time remaining before launch this sound (in %).</string>
+    <string name="sound_percent">Time remaining before launch this sound (in %).</string>
     <string name="vibrator">Use the vibrator</string>
     <string name="edit">Edit</string>
     

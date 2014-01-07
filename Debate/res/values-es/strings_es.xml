@@ -20,5 +20,14 @@
     <string name="add_speaker">"Añadir un participante"</string>
     <string name="list_speaker">"Lista de participantes"</string>
     <string name="terminate">"Termina el debate"</string>
-
+    <string name="confirm_delete">¿Estás seguro que quieres borrar esto?</string>
+    
+    <!-- Settings -->
+    <string name="sound_end_debate">Sonido para el fin del debate</string>
+    <string name="sound_end_speaker">Sonido para el fin del tiempo para un participante</string>
+    <string name="sound_close_end">Sonido cuando queda poco antes del fin.</string>
+    <string name="sound_percent">Tiempo que queda antes de jugar este sonido (en %).</string>
+    <string name="vibrator">Utilizar el vibrador</string>
+    <string name="edit">Modificar</string>
+    
 </resources>
