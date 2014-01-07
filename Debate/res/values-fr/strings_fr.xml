@@ -21,5 +21,7 @@
     <string name="add_speaker">Ajouter un intervenant</string>
     <string name="list_speaker">Liste des intervenants</string>
     <string name="terminate">Terminer le débat</string>
+        <string name="confirm_delete">Êtes vous sur de vouloir supprimer?</string>
+    
 
 </resources>
