@@ -250,7 +250,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="- SimpleDismissListViewTouchListener\n- HoloGraphLibrairy"
+                    android:text="- SimpleDismissListViewTouchListener\n- HoloGraphLibrairy\n- Android-ViewPagerIndicator"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="14dp"
                     android:textStyle="normal" />
