@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="1dp"
-                android:text="!!!!!!!!!!!!!!!!!!Son fin de débat"
+                android:text="@string/sound_end_debate"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:padding="1dp"
-                android:text="MODIFIER"
+                android:text="@string/edit"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </com.liltof.library.tools.PushScale>
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="1dp"
-                android:text="!!!!!!!!!!!!!!!!!!!!Son temps de parole dépassé"
+                android:text="@string/sound_end_speaker"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:padding="1dp"
-                android:text="MODIFIER"
+                android:text="@string/edit"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </com.liltof.library.tools.PushScale>
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="1dp"
-                android:text="!!!!!!!!!!!!!!!!!Son temps de parole presque terminé"
+                android:text="@string/sound_close_end"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:padding="1dp"
-                android:text="MODIFIER"
+                android:text="@string/edit"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </com.liltof.library.tools.PushScale>
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="1dp"
-                android:text="!!!!!!!!!!!!!!!!!!Temps restant pour presque terminé \n (% du débat)"
+                android:text="@string/sound_percent"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
@@ -179,7 +179,7 @@
                 android:id="@+id/checkBox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VIBREUR" />
+                android:text="@string/vibrator" />
 
         </LinearLayout>
 
