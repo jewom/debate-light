@@ -12,7 +12,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -58,7 +60,9 @@ public class FragmentHistorique extends FragmentParent {
 					JSONObject deb = new JSONObject(input);
 					String []date = e.replace("debat_", "").replace(".json", "").split("-");
 					deb.put("date", date[0]+"-"+date[1]+"-"+date[2]);
+					deb.put("file", e);
 					Log.d("NAME", deb.toString(1));
+					
 					debates.put(deb);
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
@@ -72,6 +76,7 @@ public class FragmentHistorique extends FragmentParent {
 				}
 			}
 		}
+		setList();
 	}
 	public void setList() {
 		((JSONAdapter) listProjects.getAdapter()).notifyDataSetChanged();
@@ -88,9 +93,26 @@ public class FragmentHistorique extends FragmentParent {
 				                  new DismissCallbacks() {
 				                      public void onDismiss(ListView listView, int[] reverseSortedPositions) {
 				                          for (int position : reverseSortedPositions) {
-				                            //  adapter.remove(adapter.getItem(position));
+				                        	  final int j = position;
+				                        	  new AlertDialog.Builder(getActivity())
+				                              .setIcon(android.R.drawable.ic_dialog_alert)
+				                              .setTitle(R.string.app_name)
+				                              .setMessage(R.string.confirm_delete)
+				                              .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+
+				                                  @Override
+				                                  public void onClick(DialogInterface dialog, int which) {
+
+				                                	  getActivity().deleteFile(debates.optJSONObject(j).optString("file"));
+				                                	  populateJSON();
+				                                  }
+
+				                              })
+				                              .setNegativeButton(android.R.string.cancel, null)
+				                              .show();
+				                           
 				                          }
-				                          //adapter.notifyDataSetChanged();
+				                          
 				                      }
 
 									@Override

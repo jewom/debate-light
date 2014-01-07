@@ -21,5 +21,6 @@
     <string name="add_speaker">Add a speaker</string>
     <string name="list_speaker">List of speakers</string>
     <string name="terminate">Finish the debate</string>
-
+    <string name="confirm_delete">Are you sure you want to delete?</string>
+    
 </resources>
