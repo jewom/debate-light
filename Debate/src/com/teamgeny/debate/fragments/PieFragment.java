@@ -103,15 +103,7 @@ public class PieFragment extends FragmentParent {
 		}
 		
 
-		pg.setOnSliceClickedListener(new OnSliceClickedListener() {
-
-			@Override
-			public void onClick(int index) {
-				PieSlice sl = pg.getSlice(index);
-
-			}
-
-		});
+	
 
 		return v;
 	}
