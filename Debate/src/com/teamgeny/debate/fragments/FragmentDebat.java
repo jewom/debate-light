@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.TextView;
@@ -167,6 +168,7 @@ public class FragmentDebat extends FragmentParent {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+
 		listPush.add(R.id.speaker1);
 		listPush.add(R.id.speaker2);
 		listPush.add(R.id.speaker3);

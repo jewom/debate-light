@@ -2,18 +2,17 @@ package com.teamgeny.debate.fragments;
 
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.webkit.WebView.FindListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.R;
@@ -65,6 +64,9 @@ public class FragmentIntervenants extends FragmentParent {
 				fragmentManager.beginTransaction()
 						.replace(R.id.content_frame, f).addToBackStack("back")
 						.commit();
+				InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
+					      Context.INPUT_METHOD_SERVICE);
+					imm.hideSoftInputFromWindow(me.findViewById(listPush.get(0)).getWindowToken(), 0);
 			}
 		});
 		// TODO Auto-generated method stub
