@@ -5,13 +5,13 @@
     <string name="welcome">Bienvenue!</string>
     
     <!-- Menu -->
-    <string name="new_project">Nouveau Projet</string>
-    <string name="past_project">Projets précédents</string>
+    <string name="new_project">Nouveau Débat</string>
+    <string name="past_project">Débats précédents</string>
     <string name="settings">Réglages</string>
     <string name="about_this_app">A propos</string>
     
     <!-- New project -->
-    <string name="project_name">Nom du projet</string>
+    <string name="project_name">Nom du débat</string>
     <string name="duration_of_debate">Durée du débat</string>
     <string name="number_of_speaker">Nombre d\'intervenants</string>
     <string name="go">Valider</string>
@@ -24,10 +24,10 @@
     <string name="confirm_delete">Êtes vous sur de vouloir supprimer?</string>
   
     <!-- Settings -->
-    <string name="sound_end_debate">Son à jouer à la fin du débat</string>
-    <string name="sound_end_speaker">Son à jouer après le temps de parole d\'un intervenant</string>
-    <string name="sound_close_end">Son à jouer quand la fin du temps de parole est proche</string>
-    <string name="sound_percent">Temps restant à partir duquel se joue le son (en %).</string>
+    <string name="sound_end_debate">Son : fin du débat</string>
+    <string name="sound_end_speaker">Son : fin de parole d\'un intervenant</string>
+    <string name="sound_close_end">Son : fin du temps de parole proche</string>
+    <string name="sound_percent">Valeur pour : fin du temps de parole proche (en %).</string>
     <string name="vibrator">Utiliser le vibreur</string>
     <string name="edit">Modifier</string>
 

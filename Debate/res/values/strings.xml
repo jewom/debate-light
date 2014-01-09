@@ -5,13 +5,13 @@
     <string name="welcome">Welcome!</string>
     
     <!-- Menu -->
-    <string name="new_project">New project</string>
-    <string name="past_project">Past projects</string>
+    <string name="new_project">New debate</string>
+    <string name="past_project">Past debates</string>
     <string name="settings">Settings</string>
     <string name="about_this_app">About</string>
     
     <!-- New project -->
-    <string name="project_name">Project name</string>
+    <string name="project_name">Debate name</string>
     <string name="duration_of_debate">Duration of the debate</string>
     <string name="number_of_speaker">Number of speaker</string>
     <string name="go">Go</string>
