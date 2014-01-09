@@ -1,16 +1,11 @@
 package com.teamgeny.debate;
 
-import org.json.JSONObject;
-
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,11 +13,10 @@ import android.view.View.OnClickListener;
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.fragments.FragmentAbout;
 import com.teamgeny.debate.fragments.FragmentHistorique;
-import com.teamgeny.debate.fragments.FragmentHistoryDetails;
 import com.teamgeny.debate.fragments.FragmentHome;
 import com.teamgeny.debate.fragments.FragmentNouveauProjet;
+import com.teamgeny.debate.fragments.FragmentSettings;
 import com.teamgeny.debate.fragments.FragmentViewPagerDetails;
-import com.teamgeny.debate.fragments.PieFragment;
 
 public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
@@ -79,7 +73,20 @@ public class MainActivity extends FragmentActivity {
 			                   .commit();
 			}
 		});
-		
+		PushScale settings = (PushScale) findViewById(R.id.buttonSettings);
+		settings.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mDrawerLayout.closeDrawers();
+
+				FragmentManager fragmentManager = getSupportFragmentManager();
+			    fragmentManager.beginTransaction()
+			                   .replace(R.id.content_frame, new FragmentSettings())
+			                   .addToBackStack(null)
+			                   .commit();
+			}
+		});
 		PushScale prev = (PushScale) findViewById(R.id.buttonPastProjects);
 		prev.setOnClickListener(new OnClickListener() {
 			
