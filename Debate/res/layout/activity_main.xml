@@ -27,13 +27,22 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#AA000000" >
+                android:background="#11000000" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_alignParentTop="true"
+                android:alpha="0.4"
+                android:background="@drawable/drop_shadow" >
             </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
+                android:layout_marginTop="20dp"
                 android:dividerHeight="0dp"
                 android:orientation="vertical" >
 
@@ -52,12 +61,12 @@
                 </com.liltof.library.tools.PushScale>
 
                 <View
-                    android:layout_height="2dp"
                     android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"
                     android:background="#88545454" />
 
                 <com.liltof.library.tools.PushScale
@@ -73,14 +82,16 @@
                         android:layout_centerInParent="true"
                         android:text="@string/past_project" />
                 </com.liltof.library.tools.PushScale>
+
                 <View
-                    android:layout_height="2dp"
                     android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"
                     android:background="#88545454" />
+
                 <com.liltof.library.tools.PushScale
                     android:id="@+id/buttonSettings"
                     android:layout_width="match_parent"
@@ -94,14 +105,16 @@
                         android:layout_centerInParent="true"
                         android:text="@string/settings" />
                 </com.liltof.library.tools.PushScale>
+
                 <View
-                    android:layout_height="2dp"
                     android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"
                     android:background="#88545454" />
+
                 <com.liltof.library.tools.PushScale
                     android:id="@+id/buttonAbout"
                     android:layout_width="match_parent"
@@ -125,5 +138,13 @@
                 android:src="@drawable/team_geny_white" />
         </RelativeLayout>
     </android.support.v4.widget.DrawerLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_alignParentTop="true"
+        android:alpha="0.4"
+        android:background="@drawable/drop_shadow" >
+    </RelativeLayout>
 
 </RelativeLayout>
