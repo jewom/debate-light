@@ -80,9 +80,7 @@ public class FragmentDebat extends FragmentParent {
 					}
 
 					current = i;
-					Toast.makeText(getActivity(),
-							"Click sur l'intervenant " + (i + 1),
-							Toast.LENGTH_SHORT).show();
+					
 					break;
 				}
 			}
@@ -224,6 +222,7 @@ public class FragmentDebat extends FragmentParent {
 						.get(i - 1));
 				final int j = i - 1;
 				p.setOnClickListener(click);
+				
 				((Chronometer) p.findViewById(R.id.textView2))
 						.setOnChronometerTickListener(new OnChronometerTickListener() {
 
