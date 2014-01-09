@@ -82,7 +82,7 @@ public class PieFragment extends FragmentParent {
 			View line = inflater.inflate(R.layout.item_graph_legend, container,
 					false);
 			try {
-				((TextView)line.findViewById(R.id.textView1)).setText(interv.getJSONObject(i).getString("nom"));
+				((TextView)line.findViewById(R.id.textView1)).setText(interv.getJSONObject(i).getString("nom")+" ("+interv.getJSONObject(i).getString("pourcentage")+"%)");
 				Drawable img = getActivity().getResources().getDrawable(R.drawable.rounded_white);
 				img.setColorFilter( color, PorterDuff.Mode.MULTIPLY );
 				((ImageView)line.findViewById(R.id.imageView1)).setImageDrawable(img);

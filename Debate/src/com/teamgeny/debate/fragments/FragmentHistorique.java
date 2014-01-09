@@ -46,7 +46,6 @@ public class FragmentHistorique extends FragmentParent {
 
 		for (String e : listFiles) {
 			if (e.startsWith("debat_")) {
-				Toast.makeText(getActivity(), e, Toast.LENGTH_SHORT).show();
 				try {
 					String content = "";
 					FileInputStream file = getActivity().openFileInput(e);

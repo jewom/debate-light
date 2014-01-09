@@ -117,7 +117,8 @@ public class FragmentDebat extends FragmentParent {
 			in.put("nom", listInterv.get(i));
 			in.put("temps_parle", formatHours(realTimeLeft.get(i)));
 			in.put("secondes_parlees", realTimeLeft.get(i));
-
+			if (sum > 0)
+			in.put("pourcentage", realTimeLeft.get(i) * 100 / sum);
 			long secRemain = ((dureeTotaleNB / numIntervenant) - realTimeLeft
 					.get(i));
 			in.put("temps_restant", formatHours(secRemain));
