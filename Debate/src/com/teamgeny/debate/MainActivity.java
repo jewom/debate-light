@@ -1,17 +1,23 @@
 package com.teamgeny.debate;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
+import android.widget.Toast;
 
+import com.example.com.liltof.library.PageGetter.OnSimpleActionEnd;
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.fragments.FragmentAbout;
+import com.teamgeny.debate.fragments.FragmentDebat;
 import com.teamgeny.debate.fragments.FragmentHistorique;
 import com.teamgeny.debate.fragments.FragmentHome;
 import com.teamgeny.debate.fragments.FragmentNouveauProjet;
@@ -53,6 +59,8 @@ public class MainActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				mDrawerLayout.closeDrawers();
+				if (checkCanLaunch() == false)
+					return;
 				FragmentManager fragmentManager = getSupportFragmentManager();
 			    fragmentManager.beginTransaction()
 			                   .replace(R.id.content_frame, new FragmentAbout())
@@ -66,6 +74,8 @@ public class MainActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				mDrawerLayout.closeDrawers();
+				if (checkCanLaunch() == false)
+					return;
 				FragmentManager fragmentManager = getSupportFragmentManager();
 			    fragmentManager.beginTransaction()
 			                   .replace(R.id.content_frame, new FragmentNouveauProjet())
@@ -79,7 +89,8 @@ public class MainActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				mDrawerLayout.closeDrawers();
-
+				if (checkCanLaunch() == false)
+					return;
 				FragmentManager fragmentManager = getSupportFragmentManager();
 			    fragmentManager.beginTransaction()
 			                   .replace(R.id.content_frame, new FragmentSettings())
@@ -93,6 +104,8 @@ public class MainActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				mDrawerLayout.closeDrawers();
+				if (checkCanLaunch() == false)
+					return;
 				FragmentManager fragmentManager = getSupportFragmentManager();
 			    fragmentManager.beginTransaction()
 			                   .replace(R.id.content_frame, new FragmentHistorique())
@@ -123,7 +136,12 @@ public class MainActivity extends FragmentActivity {
 	                   .addToBackStack(null)
 	                   .commit();
 	}
-	
+	public void quitDebate()
+	{
+		Intent i = new Intent(getApplicationContext(), MainActivity.class);
+		startActivity(i);
+		finish();
+	}
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
@@ -148,7 +166,21 @@ public class MainActivity extends FragmentActivity {
 
 		return super.onOptionsItemSelected(item);
 	}
-
+	public Boolean checkCanLaunch() {
+		FragmentDebat myFragment = (FragmentDebat)getSupportFragmentManager().findFragmentByTag(new FragmentDebat().getTitle());
+		
+		if (myFragment != null && myFragment.isVisible() && myFragment.canQuit() == false) {
+			Toast.makeText(getApplicationContext(), "VEUILLEZ TERMINER LE DEBAT D'ABORD", Toast.LENGTH_SHORT).show();
+		   return false;
+		}
+		return true;
+	}
+	@Override
+	public void onBackPressed() {
+		if (checkCanLaunch() == false)
+			return;
+		super.onBackPressed();
+	}
 
 	
 

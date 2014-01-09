@@ -91,4 +91,10 @@ public class FragmentHistoryDetails extends FragmentParent {
 
 	}
 
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "HistoryDetails";
+	}
+
 }

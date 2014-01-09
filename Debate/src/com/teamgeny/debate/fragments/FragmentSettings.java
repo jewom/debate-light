@@ -186,4 +186,10 @@ public class FragmentSettings extends FragmentParent {
 		mediaPlayer.start();
 	}
 
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "Settings";
+	}
+
 }

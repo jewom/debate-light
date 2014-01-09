@@ -15,14 +15,25 @@
 
     <TextView
         android:id="@+id/textView1"
+        android:paddingLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView1"
         android:layout_alignTop="@+id/imageView1"
-        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/pourcentage"
+        android:layout_toRightOf="@+id/imageView1"
+        android:singleLine="true"
         android:gravity="center_vertical"
         android:text="Large Textp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/pourcentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="TextView" android:layout_marginRight="10dp" />
 
 </RelativeLayout>

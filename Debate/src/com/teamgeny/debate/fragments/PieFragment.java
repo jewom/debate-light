@@ -50,6 +50,7 @@ public class PieFragment extends FragmentParent {
 	ArrayList<String> colors = new ArrayList<String>();
 	JSONObject debat;
 	JSONArray interv;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -66,45 +67,57 @@ public class PieFragment extends FragmentParent {
 		colors.add("#984ea3");
 		colors.add("#ff7f00");
 		colors.add("#ffff33");
-		colors.add("#a65628"); 
+		colors.add("#a65628");
 		colors.add("#f781bf");
 
-		View v = inflater.inflate(R.layout.fragment_piegraph, container,
-				false);
+		View v = inflater.inflate(R.layout.fragment_piegraph, container, false);
 		pg = (PieGraph) v.findViewById(R.id.piegraph);
-		 interv = debat.optJSONArray("intervenants");
+		interv = debat.optJSONArray("intervenants");
 		LinearLayout l = (LinearLayout) v.findViewById(R.id.layout_legend);
-		for (int i = 0; i < interv.length(); i++)
-		{
+		for (int i = 0; i < interv.length(); i++) {
+
 			PieSlice slice = new PieSlice();
 			int color = Color.parseColor(colors.get(i));
 			slice.setColor(Color.parseColor(colors.get(i)));
 			View line = inflater.inflate(R.layout.item_graph_legend, container,
 					false);
 			try {
-				((TextView)line.findViewById(R.id.textView1)).setText(interv.getJSONObject(i).getString("nom")+" ("+interv.getJSONObject(i).getString("pourcentage")+"%)");
-				Drawable img = getActivity().getResources().getDrawable(R.drawable.rounded_white);
-				img.setColorFilter( color, PorterDuff.Mode.MULTIPLY );
-				((ImageView)line.findViewById(R.id.imageView1)).setImageDrawable(img);
+				((TextView) line.findViewById(R.id.textView1)).setText(interv
+						.getJSONObject(i).getString("nom"));
+				((TextView) line.findViewById(R.id.pourcentage)).setText(" "
+						+ interv.getJSONObject(i).getString("pourcentage")
+						+ "%");
+				Drawable img = getActivity().getResources().getDrawable(
+						R.drawable.rounded_white);
+				img.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+				((ImageView) line.findViewById(R.id.imageView1))
+						.setImageDrawable(img);
 				l.addView(line);
-				
+
 			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			try {
-				slice.setValue(interv.getJSONObject(i).getLong("secondes_parlees"));
-				
-				pg.addSlice(slice);
+
+				if (interv.getJSONObject(i).getLong("secondes_parlees") > 0) {
+					slice.setValue(interv.getJSONObject(i).getLong(
+							"secondes_parlees"));
+
+					pg.addSlice(slice);
+				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
-
-	
 
 		return v;
+	}
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "Pie";
 	}
 }

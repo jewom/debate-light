@@ -11,7 +11,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -21,14 +23,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.liltof.library.tools.PreferenceManager;
 import com.liltof.library.tools.PushScale;
+import com.teamgeny.debate.MainActivity;
 import com.teamgeny.debate.R;
 
 public class FragmentDebat extends FragmentParent {
@@ -47,6 +48,7 @@ public class FragmentDebat extends FragmentParent {
 
 		@Override
 		public void onClick(View v) {
+			canQuitBoolean = false;
 			for (int i = 0; i < 8; i++) {
 				if (v.getId() == listPush.get(i)) {
 
@@ -80,7 +82,7 @@ public class FragmentDebat extends FragmentParent {
 					}
 
 					current = i;
-					
+
 					break;
 				}
 			}
@@ -118,7 +120,7 @@ public class FragmentDebat extends FragmentParent {
 			in.put("temps_parle", formatHours(realTimeLeft.get(i)));
 			in.put("secondes_parlees", realTimeLeft.get(i));
 			if (sum > 0)
-			in.put("pourcentage", realTimeLeft.get(i) * 100 / sum);
+				in.put("pourcentage", realTimeLeft.get(i) * 100 / sum);
 			long secRemain = ((dureeTotaleNB / numIntervenant) - realTimeLeft
 					.get(i));
 			in.put("temps_restant", formatHours(secRemain));
@@ -140,6 +142,7 @@ public class FragmentDebat extends FragmentParent {
 				Context.MODE_PRIVATE);
 		fos.write(obj.toString().getBytes());
 		fos.close();
+		canQuitBoolean = true;
 	}
 
 	public String formatHours(long secRemain) {
@@ -177,6 +180,7 @@ public class FragmentDebat extends FragmentParent {
 		listPush.add(R.id.speaker7);
 		listPush.add(R.id.speaker8);
 
+
 		soundEndDebat = PreferenceManager.getArbitraryPref(getActivity(),
 				"soundend", SoundRings.defaultFinDebat);
 
@@ -196,21 +200,16 @@ public class FragmentDebat extends FragmentParent {
 		movableTotal = dureeTotaleNB;
 		listInterv = getArguments().getStringArrayList("listInterv");
 		me = inflater.inflate(R.layout.fragment_debat, null);
+
 		PushScale stop = (PushScale) me.findViewById(R.id.pushScaleTerminer);
 		stop.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				try {
-					stopAndSave();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+
+				showDialogSave();
+
 			}
 		});
 		for (int i = 1; i < 9; i++) {
@@ -223,7 +222,7 @@ public class FragmentDebat extends FragmentParent {
 						.get(i - 1));
 				final int j = i - 1;
 				p.setOnClickListener(click);
-				
+
 				((Chronometer) p.findViewById(R.id.textView2))
 						.setOnChronometerTickListener(new OnChronometerTickListener() {
 
@@ -248,7 +247,7 @@ public class FragmentDebat extends FragmentParent {
 
 								((TextView) p.findViewById(R.id.textView5))
 										.setText(formatHours(l));
-								//secRemain = Math.abs(secRemain);
+								// secRemain = Math.abs(secRemain);
 								((TextView) p.findViewById(R.id.textView3))
 										.setText(formatHours(secRemain));
 								Log.d("Time left", "" + "((" + dureeTotaleNB
@@ -282,6 +281,61 @@ public class FragmentDebat extends FragmentParent {
 		}
 		// TODO Auto-generated method stub
 		return me;
+	}
+
+	public  void showDialogSave() {
+		new AlertDialog.Builder(getActivity())
+		.setIcon(android.R.drawable.ic_dialog_alert)
+		.setTitle("SAUVEGARDER LE DEBAT ?")
+		.setMessage("VOULEZ VOUS SAUVEGARDER LE DEBAT")
+		.setNeutralButton("!!!NON", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				((MainActivity)getActivity()).quitDebate();
+
+				
+			}
+		})
+		.setPositiveButton("!!!OUI",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+						try {
+							if (current >= 0) {
+								Chronometer c = (Chronometer) me
+										.findViewById(
+												listPush.get(current))
+										.findViewById(
+												R.id.textView2);
+								c.stop();
+							}
+							stopAndSave();
+							((MainActivity)getActivity()).quitDebate();
+							
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						// Stop the activity
+						// YourClass.this.finish();
+						
+					}
+
+				})
+		.setNegativeButton("!!!ANNULER", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				
+			}
+		})
+		.show();
 	}
 
 	MediaPlayer mediaPlayer;
@@ -318,6 +372,18 @@ public class FragmentDebat extends FragmentParent {
 		}
 
 		mediaPlayer.start();
+	}
+	Boolean canQuitBoolean = true;
+	@Override
+	public Boolean canQuit() {
+		// TODO Auto-generated method stub
+		return canQuitBoolean;
+	}
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "Debat";
 	}
 
 }

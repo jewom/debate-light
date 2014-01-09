@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
- >
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textView1"
@@ -14,11 +13,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ListView
-        android:layout_below="@+id/textView1"
         android:id="@+id/listView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1" >
     </ListView>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="4dp"
@@ -26,4 +26,53 @@
         android:alpha="0.4"
         android:background="@drawable/drop_shadow" >
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mask"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AA000000"
+        android:paddingTop="30dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="38dp"
+            android:src="@drawable/c_web" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView1"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="26dp"
+            android:gravity="center"
+            android:textColor="#FFFFFFFF"
+            android:text="Pour supprimer un débat, faites le glisser vers le bord de l&apos;écran"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <com.liltof.library.tools.PushScale
+            android:id="@+id/validMasking"
+            android:background="@drawable/rounded_corners_green"
+            android:padding="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/textView2"
+            android:layout_marginBottom="59dp"
+            android:layout_marginRight="48dp" >
+
+            <TextView
+                
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@android:string/ok" />
+        </com.liltof.library.tools.PushScale>
+    </RelativeLayout>
+
 </RelativeLayout>

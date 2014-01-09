@@ -217,5 +217,10 @@ public class FragmentAbout extends FragmentParent {
 		
 		return me;
 	}
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "about";
+	}
 
 }

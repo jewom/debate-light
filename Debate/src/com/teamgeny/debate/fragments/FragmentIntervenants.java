@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -54,15 +56,19 @@ public class FragmentIntervenants extends FragmentParent {
 				int num = b.getInt("numInterv");
 				for (int i = 0; i < num; i++)
 				{
+					if (((TextView) me.findViewById(listPush.get(i))).getText().toString().length() == 0)
+						listNoms.add(""+(i+1));
+					else
 					listNoms.add((String)((TextView) me.findViewById(listPush.get(i))).getText().toString());
 				}
 				b.putStringArrayList("listInterv", listNoms);
 				FragmentDebat f = new FragmentDebat();
+
 				f.setArguments(b);
 				FragmentManager fragmentManager = getActivity()
 						.getSupportFragmentManager();
 				fragmentManager.beginTransaction()
-						.replace(R.id.content_frame, f).addToBackStack("back")
+						.replace(R.id.content_frame, f, f.getTitle()).addToBackStack("back")
 						.commit();
 				InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
 					      Context.INPUT_METHOD_SERVICE);
@@ -71,6 +77,13 @@ public class FragmentIntervenants extends FragmentParent {
 		});
 		// TODO Auto-generated method stub
 		return me;
+	}
+
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "Intervenants";
 	}
 	
 	

@@ -60,6 +60,11 @@ public class FragmentViewPagerDetails extends FragmentParent {
 	            return 2;
 	        }
 	    }
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "ViewPagerDetails";
+	}
 	
 
 }

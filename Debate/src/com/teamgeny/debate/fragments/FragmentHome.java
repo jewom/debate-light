@@ -95,4 +95,11 @@ public class FragmentHome extends FragmentParent {
 		return me;
 	}
 
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "Home";
+	}
+
 }

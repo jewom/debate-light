@@ -72,7 +72,10 @@ public class FragmentNouveauProjet extends FragmentParent {
 				FragmentManager fragmentManager = getActivity()
 						.getSupportFragmentManager();
 				Bundle b = new Bundle();
-				b.putString("name", ((EditText) me.findViewById(R.id.editProjectName)).getText().toString());
+				if (((EditText) me.findViewById(R.id.editProjectName)).getText().toString().length() == 0)
+					b.putString("name", "NO TITLE");
+				else
+					b.putString("name", ((EditText) me.findViewById(R.id.editProjectName)).getText().toString());
 				b.putInt("numInterv", Integer.parseInt((String) ((TextView) me
 						.findViewById(R.id.textNumberOfSpeakers)).getText()));
 				b.putString("dureeDebat", (String) ((TextView) me.findViewById(R.id.textDuree)).getText());
@@ -136,6 +139,12 @@ public class FragmentNouveauProjet extends FragmentParent {
 
 		d.show();
 
+	}
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "NouveauProjet";
 	}
 
 }
