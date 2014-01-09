@@ -5,21 +5,17 @@
     tools:context=".MainActivity" >
 
     <android.support.v4.widget.DrawerLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-
-        <!-- The main content view -->
 
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
         </FrameLayout>
-        <!-- The navigation drawer -->
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/left_drawer"
             android:layout_width="240dp"
             android:layout_height="match_parent"
@@ -28,55 +24,106 @@
             android:dividerHeight="0dp"
             android:orientation="vertical" >
 
-            <com.liltof.library.tools.PushScale
-                android:id="@+id/buttonNewProject"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/rounded_corners" >
+                android:layout_height="match_parent"
+                android:background="#AA000000" >
+            </RelativeLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/new_project" />
-            </com.liltof.library.tools.PushScale>
-
-            <com.liltof.library.tools.PushScale
-                android:id="@+id/buttonPastProjects"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/rounded_corners" >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/past_project" />
-            </com.liltof.library.tools.PushScale>
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:dividerHeight="0dp"
+                android:orientation="vertical" >
 
-            <com.liltof.library.tools.PushScale
-                android:id="@+id/buttonSettings"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/rounded_corners" >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/settings" />
-            </com.liltof.library.tools.PushScale>
+                <com.liltof.library.tools.PushScale
+                    android:id="@+id/buttonNewProject"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/rounded_corners" >
 
-            <com.liltof.library.tools.PushScale
-                android:id="@+id/buttonAbout"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/rounded_corners" >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/about_this_app" />
-            </com.liltof.library.tools.PushScale>
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/new_project" />
+                </com.liltof.library.tools.PushScale>
+
+                <View
+                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="#88545454" />
+
+                <com.liltof.library.tools.PushScale
+                    android:id="@+id/buttonPastProjects"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/rounded_corners" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/past_project" />
+                </com.liltof.library.tools.PushScale>
+                <View
+                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="#88545454" />
+                <com.liltof.library.tools.PushScale
+                    android:id="@+id/buttonSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/rounded_corners" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/settings" />
+                </com.liltof.library.tools.PushScale>
+                <View
+                    android:layout_height="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="#88545454" />
+                <com.liltof.library.tools.PushScale
+                    android:id="@+id/buttonAbout"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/rounded_corners" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/about_this_app" />
+                </com.liltof.library.tools.PushScale>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/team_geny_white" />
+        </RelativeLayout>
     </android.support.v4.widget.DrawerLayout>
 
 </RelativeLayout>

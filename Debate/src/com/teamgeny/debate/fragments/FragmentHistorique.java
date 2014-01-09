@@ -135,14 +135,16 @@ public class FragmentHistorique extends FragmentParent {
 												public void onClick(
 														DialogInterface dialog,
 														int which) {
-
-													getActivity()
-															.deleteFile(
-																	debates.optJSONObject(
-																			j)
-																			.optString(
-																					"file"));
-													populateJSON();
+													if (debates
+															.optJSONObject(j) != null) {
+														getActivity()
+																.deleteFile(
+																		debates.optJSONObject(
+																				j)
+																				.optString(
+																						"file"));
+														populateJSON();
+													}
 												}
 
 											})
