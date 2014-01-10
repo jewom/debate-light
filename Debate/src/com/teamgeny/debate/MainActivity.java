@@ -63,6 +63,7 @@ public class MainActivity extends FragmentActivity {
 					return;
 				FragmentManager fragmentManager = getSupportFragmentManager();
 			    fragmentManager.beginTransaction()
+			    .setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_in_reverse, R.anim.slide_out_reverse)
 			                   .replace(R.id.content_frame, new FragmentAbout())
 			                   .addToBackStack(null)
 			                   .commit();
@@ -78,6 +79,7 @@ public class MainActivity extends FragmentActivity {
 					return;
 				FragmentManager fragmentManager = getSupportFragmentManager();
 			    fragmentManager.beginTransaction()
+			    .setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_in_reverse, R.anim.slide_out_reverse)
 			                   .replace(R.id.content_frame, new FragmentNouveauProjet())
 			                   .addToBackStack(null)
 			                   .commit();
@@ -93,6 +95,7 @@ public class MainActivity extends FragmentActivity {
 					return;
 				FragmentManager fragmentManager = getSupportFragmentManager();
 			    fragmentManager.beginTransaction()
+			    .setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_in_reverse, R.anim.slide_out_reverse)
 			                   .replace(R.id.content_frame, new FragmentSettings())
 			                   .addToBackStack(null)
 			                   .commit();
@@ -108,6 +111,7 @@ public class MainActivity extends FragmentActivity {
 					return;
 				FragmentManager fragmentManager = getSupportFragmentManager();
 			    fragmentManager.beginTransaction()
+			    .setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_in_reverse, R.anim.slide_out_reverse)
 			                   .replace(R.id.content_frame, new FragmentHistorique())
 			                   .addToBackStack(null)
 			                   .commit();
@@ -117,6 +121,7 @@ public class MainActivity extends FragmentActivity {
 		getActionBar().setHomeButtonEnabled(true);
 		FragmentManager fragmentManager = getSupportFragmentManager();
 	    fragmentManager.beginTransaction()
+	    
 	                   .replace(R.id.content_frame, new FragmentHome())
 	                   
 	                   .commit();
@@ -132,6 +137,7 @@ public class MainActivity extends FragmentActivity {
 		f.setArguments(b);
 		FragmentManager fragmentManager = getSupportFragmentManager();
 	    fragmentManager.beginTransaction()
+	    .setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_in_reverse, R.anim.slide_out_reverse)
 	                   .replace(R.id.content_frame, f)
 	                   .addToBackStack(null)
 	                   .commit();

@@ -68,6 +68,7 @@ public class FragmentIntervenants extends FragmentParent {
 				FragmentManager fragmentManager = getActivity()
 						.getSupportFragmentManager();
 				fragmentManager.beginTransaction()
+				.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_in_reverse, R.anim.slide_out_reverse)
 						.replace(R.id.content_frame, f, f.getTitle()).addToBackStack("back")
 						.commit();
 				InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
