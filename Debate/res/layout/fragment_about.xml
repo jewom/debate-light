@@ -3,19 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F0F0"
-    android:orientation="vertical"
-    android:padding="6dp" >
-    
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/fond_ecran" />
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/fond_ecran" />
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -106,11 +105,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_toLeftOf="@+id/imageViewTwittJ"
                     android:src="@drawable/facebook_selector" />
-
             </RelativeLayout>
 
-            
-              <RelativeLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp" >
@@ -160,13 +157,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_toLeftOf="@+id/imageViewTwittC"
                     android:src="@drawable/facebook_selector" />
-
             </RelativeLayout>
-            
-              
-            
-                            
-                                          <RelativeLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp" >
@@ -216,15 +209,13 @@
                     android:layout_alignParentTop="true"
                     android:layout_toLeftOf="@+id/imageViewTwittM"
                     android:src="@drawable/facebook_selector" />
-
             </RelativeLayout>
-            
-            
-              <RelativeLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="2dp" >
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="12dp" >
 
                 <TextView
                     android:id="@+id/thanksto"
@@ -236,14 +227,11 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="15dp"
                     android:textStyle="bold" />
-
             </RelativeLayout>
-            
-              
-                           <RelativeLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                 >
+                android:layout_height="wrap_content" >
 
                 <TextView
                     android:id="@+id/thanksto2"
@@ -255,14 +243,13 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="14dp"
                     android:textStyle="normal" />
-
             </RelativeLayout>
-              
-           <RelativeLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="2dp" >
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="12dp" >
 
                 <TextView
                     android:id="@+id/thanksto"
@@ -274,14 +261,11 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="15dp"
                     android:textStyle="bold" />
-
             </RelativeLayout>
-            
-              
-                           <RelativeLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                 >
+                android:layout_height="wrap_content" >
 
                 <TextView
                     android:id="@+id/thanksto2"
@@ -293,73 +277,52 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="14dp"
                     android:textStyle="normal" />
-                
+            </RelativeLayout>
 
-            </RelativeLayout>    
-            
-                           
-           <RelativeLayout 
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-                
-                  <LinearLayout
-                                           android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="6dp"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-											>
-        
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="6dp" >
 
-                                            
-                                                                <ImageView
-                    android:id="@+id/imageViewSGoogle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_google" />
-                    
-                                        <ImageView
-                    android:id="@+id/imageViewSFacebook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
- 
-                    android:src="@drawable/c_facebook" />
-                                        
-                                                                                <ImageView
-                    android:id="@+id/imageViewSTwitter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
- 
-                    android:src="@drawable/c_twitter" />
-                                                                                
-                                                                                                                        <ImageView
-                    android:id="@+id/imageViewSWeb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
- 
-                    android:src="@drawable/c_web" />
-                                                                                                                        
-                                                                                                                                                                <ImageView
-                    android:id="@+id/imageViewSMail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
- 
-                    android:src="@drawable/c_mail" />
-                                            
-                                        </LinearLayout>
-               
-               
-               
-           </RelativeLayout>
-                           
-                      
-          </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imageViewSGoogle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/c_google" />
 
+                    <ImageView
+                        android:id="@+id/imageViewSFacebook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/c_facebook" />
+
+                    <ImageView
+                        android:id="@+id/imageViewSTwitter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/c_twitter" />
+
+                    <ImageView
+                        android:id="@+id/imageViewSWeb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/c_web" />
+
+                    <ImageView
+                        android:id="@+id/imageViewSMail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/c_mail" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
-
-
-                                     
 </RelativeLayout>
