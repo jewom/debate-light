@@ -21,8 +21,18 @@
     <string name="add_speaker">Ajouter un intervenant</string>
     <string name="list_speaker">Liste des intervenants</string>
     <string name="terminate">Terminer le débat</string>
-    <string name="confirm_delete">Êtes vous sur de vouloir supprimer?</string>
+    <string name="confirm_delete">Êtes vous sûr de vouloir supprimer?</string>
+    <string name="save">Sauvegarder le débat ?</string>
+    <string name="save_question">Souhaitez-vous sauvegarder ce débat ?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="cancel">Annuler</string>
   
+    <!-- Historique -->
+    <string name="details">Détails</string>
+    <string name="graph">Graphique</string>
+    <string name="howtodelete">Pour supprimer un débat, faites le glisser vers le bord de l\'écran</string>
+    
     <!-- Settings -->
     <string name="sound_end_debate">Son : fin du débat</string>
     <string name="sound_end_speaker">Son : fin de parole d\'un intervenant</string>

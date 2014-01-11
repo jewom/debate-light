@@ -4,8 +4,8 @@
     <string name="welcome">¡Bienvenido!</string>
     
     <!-- Menu -->
-    <string name="new_project">"Nuevo proyecto"</string>
-    <string name="past_project">"Proyectos anteriores"</string>
+    <string name="new_project">"Nuevo debate"</string>
+    <string name="past_project">"Debates anteriores"</string>
     <string name="settings">"Configuración"</string>
     <string name="about_this_app">"Acerca de"</string>
     
@@ -19,8 +19,18 @@
     <string name="remaining_time">"Tiempo restante"</string>
     <string name="add_speaker">"Añadir un participante"</string>
     <string name="list_speaker">"Lista de participantes"</string>
-    <string name="terminate">"Termina el debate"</string>
+    <string name="terminate">"Terminar el debate"</string>
     <string name="confirm_delete">¿Estás seguro que quieres borrar esto?</string>
+    <string name="save">Salvar el debate ?</string>
+    <string name="save_question">Quiere salvar este debate ?</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancelar</string>
+    
+    <!-- Historique -->
+    <string name="details">Details</string>
+    <string name="graph">Gráfico</string>
+    <string name="howtodelete">Para eliminar un debate, muevelo hacia el borde de la pantalla.</string>
     
     <!-- Settings -->
     <string name="sound_end_debate">Sonido para el fin del debate</string>

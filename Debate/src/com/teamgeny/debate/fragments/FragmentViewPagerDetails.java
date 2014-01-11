@@ -53,7 +53,7 @@ public class FragmentViewPagerDetails extends FragmentParent {
 	        @Override
 	        public CharSequence getPageTitle(int position) {
 	        // TODO Auto-generated method stub
-	        return position == 0 ? "DETAILS" : "GRAPHIQUE";
+	        return position == 0 ? getString(R.string.details) : getString(R.string.graph);
 	        }
 	        @Override
 	        public int getCount() {

@@ -286,9 +286,9 @@ public class FragmentDebat extends FragmentParent {
 	public  void showDialogSave() {
 		new AlertDialog.Builder(getActivity())
 		.setIcon(android.R.drawable.ic_dialog_alert)
-		.setTitle("SAUVEGARDER LE DEBAT ?")
-		.setMessage("VOULEZ VOUS SAUVEGARDER LE DEBAT")
-		.setNeutralButton("!!!NON", new DialogInterface.OnClickListener() {
+		.setTitle(getString(R.string.save))
+		.setMessage(getString(R.string.save_question))
+		.setNeutralButton(getString(R.string.no), new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -297,7 +297,7 @@ public class FragmentDebat extends FragmentParent {
 				
 			}
 		})
-		.setPositiveButton("!!!OUI",
+		.setPositiveButton(getString(R.string.yes),
 				new DialogInterface.OnClickListener() {
 
 					@Override
@@ -328,7 +328,7 @@ public class FragmentDebat extends FragmentParent {
 					}
 
 				})
-		.setNegativeButton("!!!ANNULER", new DialogInterface.OnClickListener() {
+		.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {

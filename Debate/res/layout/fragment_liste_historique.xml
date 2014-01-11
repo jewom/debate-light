@@ -53,7 +53,7 @@
             android:layout_margin="26dp"
             android:gravity="center"
             android:textColor="#FFFFFFFF"
-            android:text="Pour supprimer un débat, faites le glisser vers le bord de l&apos;écran"
+            android:text="@string/howtodelete"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <com.liltof.library.tools.PushScale
