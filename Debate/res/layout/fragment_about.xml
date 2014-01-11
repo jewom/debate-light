@@ -14,7 +14,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:scaleType="fitXY"
-        android:src="@drawable/fond_ecran" />
+        android:src="@drawable/fond_ecran"
+        android:alpha="0.7" />
 
     <ScrollView
         android:id="@+id/scrollView1"
