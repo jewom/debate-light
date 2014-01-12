@@ -17,8 +17,10 @@ import android.widget.NumberPicker;
 import android.widget.NumberPicker.OnValueChangeListener;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.liltof.library.tools.PushScale;
+import com.teamgeny.debate.RangeTimePickerDialog;
 import com.teamgeny.debatelight.R;
 
 public class FragmentNouveauProjet extends FragmentParent {
@@ -40,7 +42,7 @@ public class FragmentNouveauProjet extends FragmentParent {
 			myCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
 			myCalendar.set(Calendar.MINUTE, minute);
 			updateLabel();
-
+			
 		}
 	};
 
@@ -98,7 +100,11 @@ public class FragmentNouveauProjet extends FragmentParent {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				new TimePickerDialog(getActivity(), time, 0, 0, true).show();
+				RangeTimePickerDialog r = new RangeTimePickerDialog(getActivity(), time, 0, 0, true);
+				r.setMin(0, 0);
+				r.setMax(0, 30);
+				r.show();
+//				new TimePickerDialog(getActivity(), time, 0, 0, true).show();
 			}
 		});
 		// TODO Auto-generated method stub
@@ -106,14 +112,14 @@ public class FragmentNouveauProjet extends FragmentParent {
 	}
 	private int val = 1;
 	public void showNumPicker() {
-
+		Toast.makeText(getActivity(), "!!!!!!!!!!La version gratuite est limitée à 3 intervenants", Toast.LENGTH_LONG).show();
 		final Dialog d = new Dialog(getActivity());
 		d.setTitle("NumberPicker");
 		d.setContentView(R.layout.num_picker_dialog);
 		PushScale b1 = (PushScale) d.findViewById(R.id.button1);
 		final NumberPicker np = (NumberPicker) d
 				.findViewById(R.id.numberPicker1);
-		np.setMaxValue(8);
+		np.setMaxValue(3);
 		np.setMinValue(1);
 		np.setValue(val);
 		np.setWrapSelectorWheel(false);

@@ -33,20 +33,7 @@ public class FragmentHome extends FragmentParent {
 			}
 		});
 		
-		PushScale open = (PushScale) me.findViewById(R.id.btn_open);
-		open.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				FragmentManager fragmentManager = getFragmentManager();
-			    fragmentManager.beginTransaction()
-			    .setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_in_reverse, R.anim.slide_out_reverse)
-			                   .replace(R.id.content_frame, new FragmentHistorique())
-			                   .addToBackStack(null)
-			                   .commit();
-			}
-		});
-		
+
 		PushScale about = (PushScale) me.findViewById(R.id.btn_about);
 		about.setOnClickListener(new OnClickListener() {
 			

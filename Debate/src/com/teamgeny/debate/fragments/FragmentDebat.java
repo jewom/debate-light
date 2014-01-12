@@ -286,53 +286,25 @@ public class FragmentDebat extends FragmentParent {
 	public  void showDialogSave() {
 		new AlertDialog.Builder(getActivity())
 		.setIcon(android.R.drawable.ic_dialog_alert)
-		.setTitle(getString(R.string.save))
-		.setMessage(getString(R.string.save_question))
-		.setNeutralButton(getString(R.string.no), new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				((MainActivity)getActivity()).quitDebate();
-
-				
-			}
-		})
-		.setPositiveButton(getString(R.string.yes),
+		.setTitle("!!!!!Passer à la version pro?")
+		.setMessage("!!!!!En utilisant la version pro, vous aurez la posibilité de conserver un historique de vos débats.")
+		
+		.setPositiveButton("!!!!!Passer à la version pro!",
 				new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog,
 							int which) {
-						try {
-							if (current >= 0) {
-								Chronometer c = (Chronometer) me
-										.findViewById(
-												listPush.get(current))
-										.findViewById(
-												R.id.textView2);
-								c.stop();
-							}
-							stopAndSave();
-							((MainActivity)getActivity()).quitDebate();
-							
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						// Stop the activity
-						// YourClass.this.finish();
+						//ICI RENVOYER VERS LA PRO !!!
 						
 					}
 
 				})
-		.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+		.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				
+				((MainActivity)getActivity()).quitDebate();
 			}
 		})
 		.show();

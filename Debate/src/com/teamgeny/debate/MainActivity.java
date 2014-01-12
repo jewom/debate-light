@@ -15,11 +15,9 @@ import android.widget.Toast;
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.fragments.FragmentAbout;
 import com.teamgeny.debate.fragments.FragmentDebat;
-import com.teamgeny.debate.fragments.FragmentHistorique;
 import com.teamgeny.debate.fragments.FragmentHome;
 import com.teamgeny.debate.fragments.FragmentNouveauProjet;
 import com.teamgeny.debate.fragments.FragmentSettings;
-import com.teamgeny.debate.fragments.FragmentViewPagerDetails;
 import com.teamgeny.debatelight.R;
 
 public class MainActivity extends FragmentActivity {
@@ -99,22 +97,7 @@ public class MainActivity extends FragmentActivity {
 			                   .commit();
 			}
 		});
-		PushScale prev = (PushScale) findViewById(R.id.buttonPastProjects);
-		prev.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				mDrawerLayout.closeDrawers();
-				if (checkCanLaunch() == false)
-					return;
-				FragmentManager fragmentManager = getSupportFragmentManager();
-			    fragmentManager.beginTransaction()
-			    .setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_in_reverse, R.anim.slide_out_reverse)
-			                   .replace(R.id.content_frame, new FragmentHistorique())
-			                   .addToBackStack(null)
-			                   .commit();
-			}
-		});
+
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
 		FragmentManager fragmentManager = getSupportFragmentManager();
@@ -127,19 +110,7 @@ public class MainActivity extends FragmentActivity {
 		
 	}
 
-	public void showFragmentHistoryDetails(String json)
-	{
-		FragmentViewPagerDetails f = new FragmentViewPagerDetails();
-		Bundle b = new Bundle();
-		b.putString("debat", json);
-		f.setArguments(b);
-		FragmentManager fragmentManager = getSupportFragmentManager();
-	    fragmentManager.beginTransaction()
-	    .setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_in_reverse, R.anim.slide_out_reverse)
-	                   .replace(R.id.content_frame, f)
-	                   .addToBackStack(null)
-	                   .commit();
-	}
+	
 	public void quitDebate()
 	{
 		Intent i = new Intent(getApplicationContext(), MainActivity.class);

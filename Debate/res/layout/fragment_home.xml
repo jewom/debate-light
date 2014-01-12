@@ -1,12 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-     >
+    android:background="#FFFFFF" >
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
- 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true" >
@@ -19,9 +17,9 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:alpha="0.7"
             android:scaleType="fitXY"
-            android:src="@drawable/fond_ecran"
-            android:alpha="0.7" />
+            android:src="@drawable/fond_ecran" />
 
         <View
             android:id="@+id/separator"
@@ -51,12 +49,13 @@
                     android:layout_centerInParent="true"
                     android:background="@drawable/ic_new" />
 
-                <TextView android:gravity="center"
+                <TextView
                     android:id="@+id/TextView01"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/img_new"
                     android:layout_centerHorizontal="true"
+                    android:gravity="center"
                     android:text="@string/new_project"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="15sp" />
@@ -75,15 +74,26 @@
                     android:layout_centerInParent="true"
                     android:background="@drawable/ic_open" />
 
-                <TextView android:gravity="center"
+                <TextView
                     android:id="@+id/TextView02"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/img_open"
                     android:layout_centerHorizontal="true"
+                    android:gravity="center"
                     android:text="@string/past_project"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TextView02"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="(version payante)"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
             </com.liltof.library.tools.PushScale>
         </LinearLayout>
 
@@ -109,12 +119,13 @@
                     android:layout_centerInParent="true"
                     android:background="@drawable/ic_settings" />
 
-                <TextView android:gravity="center"
+                <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/img_settings"
                     android:layout_centerHorizontal="true"
+                    android:gravity="center"
                     android:text="@string/settings"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="15sp" />
@@ -133,12 +144,13 @@
                     android:layout_centerInParent="true"
                     android:background="@drawable/ic_about" />
 
-                <TextView android:gravity="center"
+                <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/img_about"
                     android:layout_centerHorizontal="true"
+                    android:gravity="center"
                     android:text="@string/about_this_app"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="15sp" />
@@ -152,9 +164,8 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:text="@string/welcome"
-            android:textSize="33dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="33dp" />
     </RelativeLayout>
 
 </RelativeLayout>
