@@ -13,9 +13,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:alpha="0.7"
         android:scaleType="fitXY"
-        android:src="@drawable/fond_ecran"
-        android:alpha="0.7" />
+        android:src="@drawable/fond_ecran" />
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -241,8 +241,36 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="- SimpleDismissListViewTouchListener\n- HoloGraphLibrairy\n- Android-ViewPagerIndicator"
+                    android:text="- SimpleDismissListViewTouchListener"
                     android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#FF3366FF"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/thanksto3"
+                                        android:layout_marginBottom="5dp"
+                    
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/thanksto2"
+                    android:text="- HoloGraphLibrairy"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#FF3366FF"
+                    android:textSize="14dp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/thanksto4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/thanksto3"
+                    android:text="- Android-ViewPagerIndicator"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#FF3366FF"
                     android:textSize="14dp"
                     android:textStyle="normal" />
             </RelativeLayout>
