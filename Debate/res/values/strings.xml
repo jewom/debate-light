@@ -3,7 +3,7 @@
 
     <!-- Before -->
     <string name="welcome">Welcome!</string>
-    
+
     <!-- Menu -->
     <string name="new_project">New debate</string>
     <string name="past_project">Past debates</string>
