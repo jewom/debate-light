@@ -32,9 +32,9 @@ import android.widget.TextView;
 
 import com.liltof.library.tools.PreferenceManager;
 import com.teamgeny.debate.MainActivity;
-import com.teamgeny.debate.R;
 import com.teamgeny.debate.SwipeDismissListViewTouchListener;
 import com.teamgeny.debate.SwipeDismissListViewTouchListener.DismissCallbacks;
+import com.teamgeny.debatelight.R;
 
 public class FragmentHistorique extends FragmentParent {
 	View me;

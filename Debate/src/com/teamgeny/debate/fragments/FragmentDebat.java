@@ -30,7 +30,7 @@ import android.widget.TextView;
 import com.liltof.library.tools.PreferenceManager;
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.MainActivity;
-import com.teamgeny.debate.R;
+import com.teamgeny.debatelight.R;
 
 public class FragmentDebat extends FragmentParent {
 	View me;

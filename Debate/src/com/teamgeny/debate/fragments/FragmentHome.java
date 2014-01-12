@@ -1,36 +1,14 @@
 package com.teamgeny.debate.fragments;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
-
-import android.app.Dialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.NumberPicker;
-import android.widget.NumberPicker.OnValueChangeListener;
-import android.widget.TextView;
-import android.widget.TimePicker;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.liltof.library.tools.PushScale;
-import com.teamgeny.debate.R;
+import com.teamgeny.debatelight.R;
 
 public class FragmentHome extends FragmentParent {
 	View me;

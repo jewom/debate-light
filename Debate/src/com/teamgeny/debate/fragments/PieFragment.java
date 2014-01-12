@@ -41,9 +41,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.echo.holographlibrary.PieGraph;
-import com.echo.holographlibrary.PieGraph.OnSliceClickedListener;
 import com.echo.holographlibrary.PieSlice;
-import com.teamgeny.debate.R;
+import com.teamgeny.debatelight.R;
 
 public class PieFragment extends FragmentParent {
 	PieGraph pg;

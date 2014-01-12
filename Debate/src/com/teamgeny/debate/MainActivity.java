@@ -7,14 +7,11 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnKeyListener;
 import android.widget.Toast;
 
-import com.example.com.liltof.library.PageGetter.OnSimpleActionEnd;
 import com.liltof.library.tools.PushScale;
 import com.teamgeny.debate.fragments.FragmentAbout;
 import com.teamgeny.debate.fragments.FragmentDebat;
@@ -23,6 +20,7 @@ import com.teamgeny.debate.fragments.FragmentHome;
 import com.teamgeny.debate.fragments.FragmentNouveauProjet;
 import com.teamgeny.debate.fragments.FragmentSettings;
 import com.teamgeny.debate.fragments.FragmentViewPagerDetails;
+import com.teamgeny.debatelight.R;
 
 public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;

@@ -19,7 +19,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.liltof.library.tools.PreferenceManager;
-import com.teamgeny.debate.R;
+import com.teamgeny.debatelight.R;
 
 public class FragmentSettings extends FragmentParent {
 	View me;

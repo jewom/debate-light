@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.teamgeny.debate.R;
+import com.teamgeny.debatelight.R;
 
 public class FragmentHistoryDetails extends FragmentParent {
 	View me;

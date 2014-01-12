@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.teamgeny.debate.R;
+import com.teamgeny.debatelight.R;
 import com.viewpagerindicator.TitlePageIndicator;
 
 public class FragmentViewPagerDetails extends FragmentParent {

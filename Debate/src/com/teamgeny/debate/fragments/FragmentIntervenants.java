@@ -5,11 +5,9 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -17,7 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.liltof.library.tools.PushScale;
-import com.teamgeny.debate.R;
+import com.teamgeny.debatelight.R;
 
 public class FragmentIntervenants extends FragmentParent {
 	View me;
