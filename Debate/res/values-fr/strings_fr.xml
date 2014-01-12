@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <!-- Before -->
     <string name="welcome">Bienvenue!</string>
     
@@ -27,6 +27,7 @@
     <string name="yes">Oui</string>
     <string name="no">Non</string>
     <string name="cancel">Annuler</string>
+    <string name="pleasefinish">Terminez le débat avant de sortir</string>
   
     <!-- Historique -->
     <string name="details">Détails</string>
@@ -40,6 +41,7 @@
     <string name="sound_percent">Valeur pour : fin du temps de parole proche (en %).</string>
     <string name="vibrator">Utiliser le vibreur</string>
     <string name="edit">Modifier</string>
+    <string name="selectbip">Choisissez un son</string>
     
     <!-- Pro Version -->
     <string name="limited">Free version is limited to 3 speakers.</string>

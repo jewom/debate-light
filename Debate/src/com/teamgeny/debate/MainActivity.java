@@ -145,7 +145,7 @@ public class MainActivity extends FragmentActivity {
 		FragmentDebat myFragment = (FragmentDebat)getSupportFragmentManager().findFragmentByTag(new FragmentDebat().getTitle());
 		
 		if (myFragment != null && myFragment.isVisible() && myFragment.canQuit() == false) {
-			Toast.makeText(getApplicationContext(), "VEUILLEZ TERMINER LE DEBAT D'ABORD", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), getString(R.string.pleasefinish), Toast.LENGTH_SHORT).show();
 		   return false;
 		}
 		return true;

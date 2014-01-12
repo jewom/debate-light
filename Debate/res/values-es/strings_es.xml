@@ -4,10 +4,10 @@
     <string name="welcome">¡Bienvenido!</string>
     
     <!-- Menu -->
-    <string name="new_project">"Nuevo debate"</string>
-    <string name="past_project">"Debates anteriores"</string>
-    <string name="settings">"Configuración"</string>
-    <string name="about_this_app">"Acerca de"</string>
+    <string name="new_project">Nuevo debate</string>
+    <string name="past_project">Debates anteriores</string>
+    <string name="settings">Configuración</string>
+    <string name="about_this_app">Acerca de</string>
     
     <!-- New project -->
     <string name="project_name">"Nombre del proyecto"</string>
@@ -15,17 +15,18 @@
     <string name="number_of_speaker">"Cantidad de participantes"</string>
     <string name="go">Ir</string>
     <string name="speaker">Participantes</string>
-    <string name="time_spoken">"Tiempo de intervención"</string>
-    <string name="remaining_time">"Tiempo restante"</string>
-    <string name="add_speaker">"Añadir un participante"</string>
-    <string name="list_speaker">"Lista de participantes"</string>
-    <string name="terminate">"Terminar el debate"</string>
+    <string name="time_spoken">Tiempo de intervención</string>
+    <string name="remaining_time">Tiempo restante</string>
+    <string name="add_speaker">Añadir un participante</string>
+    <string name="list_speaker">Lista de participantes</string>
+    <string name="terminate">Terminar el debate</string>
     <string name="confirm_delete">¿Estás seguro que quieres borrar esto?</string>
     <string name="save">Salvar el debate ?</string>
     <string name="save_question">Quiere salvar este debate ?</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="cancel">Cancelar</string>
+    <string name="pleasefinish">Termine el debate antes de salir!</string>
     
     <!-- Historique -->
     <string name="details">Details</string>
@@ -39,6 +40,7 @@
     <string name="sound_percent">Tiempo que queda antes de jugar este sonido (en %).</string>
     <string name="vibrator">Utilizar el vibrador</string>
     <string name="edit">Modificar</string>
+    <string name="selectbip">Seleccione un sonido</string>
     
     <!-- Pro Version -->
     <string name="limited">La version gratis esta limitada a 3 participantes</string>

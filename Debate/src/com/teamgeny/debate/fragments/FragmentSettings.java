@@ -143,7 +143,7 @@ public class FragmentSettings extends FragmentParent {
 		
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setTitle("SELECTIONNEZ UNE SONNERIE");
+		builder.setTitle(getString(R.string.selectbip));
 		builder.setPositiveButton(R.string.go, new OnClickListener() {
 
 			@Override
