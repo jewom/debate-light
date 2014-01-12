@@ -14,7 +14,9 @@ import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.os.Vibrator;
@@ -295,7 +297,7 @@ public class FragmentDebat extends FragmentParent {
 					@Override
 					public void onClick(DialogInterface dialog,
 							int which) {
-						//ICI RENVOYER VERS LA PRO !!!
+						startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.teamgeny.debate")));
 						
 					}
 
