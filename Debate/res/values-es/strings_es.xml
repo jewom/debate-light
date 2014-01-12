@@ -13,8 +13,8 @@
     <string name="project_name">"Nombre del proyecto"</string>
     <string name="duration_of_debate">"Duración del debate"</string>
     <string name="number_of_speaker">"Cantidad de participantes"</string>
-    <string name="go">"Ir"</string>
-    <string name="speaker">"Participantes"</string>
+    <string name="go">Ir</string>
+    <string name="speaker">Participantes</string>
     <string name="time_spoken">"Tiempo de intervención"</string>
     <string name="remaining_time">"Tiempo restante"</string>
     <string name="add_speaker">"Añadir un participante"</string>
@@ -39,5 +39,10 @@
     <string name="sound_percent">Tiempo que queda antes de jugar este sonido (en %).</string>
     <string name="vibrator">Utilizar el vibrador</string>
     <string name="edit">Modificar</string>
+    
+    <!-- Pro Version -->
+    <string name="limited">La version gratis esta limitada a 3 participantes</string>
+    <string name="paidversion">Versión pagada solamente</string>
+    <string name="minutesversion">La versión gratuita está limitada a 30 minutos</string>
     
 </resources>

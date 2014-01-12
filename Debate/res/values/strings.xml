@@ -41,4 +41,9 @@
     <string name="vibrator">Use the vibrator</string>
     <string name="edit">Edit</string>
     
+    <!-- Pro Version -->
+    <string name="limited">Free version is limited to 3 speakers.</string>
+    <string name="paidversion">Paid version only</string>
+    <string name="minutesversion">The free version is limited to 30 minutes</string>
+    
 </resources>

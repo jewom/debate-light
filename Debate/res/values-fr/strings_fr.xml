@@ -40,5 +40,10 @@
     <string name="sound_percent">Valeur pour : fin du temps de parole proche (en %).</string>
     <string name="vibrator">Utiliser le vibreur</string>
     <string name="edit">Modifier</string>
+    
+    <!-- Pro Version -->
+    <string name="limited">Free version is limited to 3 speakers.</string>
+    <string name="paidversion">Paid version only</string>
+    <string name="minutesversion">La version gratuite est limitée à 30 minutes</string>
 
 </resources>

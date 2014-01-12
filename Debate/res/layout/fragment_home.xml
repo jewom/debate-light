@@ -91,7 +91,7 @@
                     android:layout_below="@+id/TextView02"
                     android:layout_centerHorizontal="true"
                     android:gravity="center"
-                    android:text="(version payante)"
+                    android:text="@string/paidversion"
                     android:textSize="12sp"
                     android:textStyle="italic" />
             </com.liltof.library.tools.PushScale>

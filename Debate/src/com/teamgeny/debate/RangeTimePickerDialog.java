@@ -3,6 +3,8 @@ import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.util.Calendar;
 
+import com.teamgeny.debatelight.R;
+
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.widget.TimePicker;
@@ -64,7 +66,7 @@ public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
         if (shown == false)
         {
         	shown = true;
-        	Toast.makeText(getContext(), "Version gratuite limitée à 30 minutes", Toast.LENGTH_SHORT).show();
+        	Toast.makeText(getContext(), R.string.minutesversion, Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -74,7 +76,7 @@ public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
         if (shown == false)
         {
         	shown = true;
-        	Toast.makeText(getContext(), "Version gratuite limitée à 30 minutes", Toast.LENGTH_SHORT).show();
+        	Toast.makeText(getContext(), R.string.minutesversion, Toast.LENGTH_SHORT).show();
         }
     }
 

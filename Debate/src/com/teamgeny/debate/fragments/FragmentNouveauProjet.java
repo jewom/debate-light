@@ -112,7 +112,7 @@ public class FragmentNouveauProjet extends FragmentParent {
 	}
 	private int val = 1;
 	public void showNumPicker() {
-		Toast.makeText(getActivity(), "!!!!!!!!!!La version gratuite est limitée à 3 intervenants", Toast.LENGTH_LONG).show();
+		Toast.makeText(getActivity(), getString(R.string.limited), Toast.LENGTH_LONG).show();
 		final Dialog d = new Dialog(getActivity());
 		d.setTitle("NumberPicker");
 		d.setContentView(R.layout.num_picker_dialog);
