@@ -73,6 +73,7 @@ public class FragmentSettings extends FragmentParent {
 				
 			}
 		});
+		
 		((TextView) me.findViewById(R.id.actual2)).setText(PreferenceManager.getArbitraryPref(getActivity(), "soundparoleend", SoundRings.defaultFinUnePers));
 
 		me.findViewById(R.id.sound3).setOnClickListener(new View.OnClickListener() {
@@ -88,6 +89,7 @@ public class FragmentSettings extends FragmentParent {
 				
 			}
 		});
+		
 		((TextView) me.findViewById(R.id.actual3)).setText(PreferenceManager.getArbitraryPref(getActivity(), "soundparolepercent", SoundRings.defaultPercent));
 
 		SeekBar s =(SeekBar) me.findViewById(R.id.seekBar1);
@@ -154,6 +156,12 @@ public class FragmentSettings extends FragmentParent {
 							.setArbitraryPref(getActivity(), pref, tmp);
 
 				}
+				((TextView) me.findViewById(R.id.actual1)).setText(PreferenceManager.getArbitraryPref(getActivity(), "soundend", SoundRings.defaultFinDebat));
+
+				((TextView) me.findViewById(R.id.actual2)).setText(PreferenceManager.getArbitraryPref(getActivity(), "soundparoleend", SoundRings.defaultFinUnePers));
+
+				((TextView) me.findViewById(R.id.actual3)).setText(PreferenceManager.getArbitraryPref(getActivity(), "soundparolepercent", SoundRings.defaultPercent));
+
 			}
 		});
 		builder.setSingleChoiceItems(items, selected,
