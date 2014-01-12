@@ -46,5 +46,7 @@
     <string name="limited">La version gratis esta limitada a 3 participantes</string>
     <string name="paidversion">Versión pagada solamente</string>
     <string name="minutesversion">La versión gratuita está limitada a 30 minutos</string>
+    <string name="passpro">Comprar la version pro</string>
+    <string name="prohistorique">Usando la versión Pro, usted podra salvar sus debates.</string>
     
 </resources>

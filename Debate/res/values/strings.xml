@@ -47,5 +47,7 @@
     <string name="limited">Free version is limited to 3 speakers.</string>
     <string name="paidversion">Paid version only</string>
     <string name="minutesversion">The free version is limited to 30 minutes</string>
+    <string name="passpro">Get the pro version</string>
+    <string name="prohistorique">Using the pro version, you will be able to keep a history of your discussions.</string>
     
 </resources>

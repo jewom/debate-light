@@ -286,10 +286,10 @@ public class FragmentDebat extends FragmentParent {
 	public  void showDialogSave() {
 		new AlertDialog.Builder(getActivity())
 		.setIcon(android.R.drawable.ic_dialog_alert)
-		.setTitle("!!!!!Passer à la version pro?")
-		.setMessage("!!!!!En utilisant la version pro, vous aurez la posibilité de conserver un historique de vos débats.")
+		.setTitle(getString(R.string.paidversion))
+		.setMessage(getString(R.string.prohistorique))
 		
-		.setPositiveButton("!!!!!Passer à la version pro!",
+		.setPositiveButton(getString(R.string.passpro),
 				new DialogInterface.OnClickListener() {
 
 					@Override
