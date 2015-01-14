@@ -1,0 +1,4 @@
+include ':Debate'
+include ':HoloGraphLibrary'
+include ':AndroidViewPagerIndicator'
+include ':com.liltof.library'

@@ -1,11 +1,14 @@
-apply plugin: 'android-library'
+apply plugin: 'android'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
+    compile project(':com.liltof.library')
+    compile project(':HoloGraphLibrary')
+    compile project(':AndroidViewPagerIndicator')
 }
 
 android {
-    compileSdkVersion 17
+    compileSdkVersion 19
     buildToolsVersion "19.0.0"
 
     sourceSets {
